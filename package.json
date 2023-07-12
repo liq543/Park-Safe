@@ -1,0 +1,20 @@
+{
+  "name": "park-safe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx tailwindcss -i ./src/input.css -o ./assets/css/styles.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liq543/Park-Safe.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liq543/Park-Safe/issues"
+  },
+  "homepage": "https://github.com/liq543/Park-Safe#readme"
+}
