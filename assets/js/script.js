@@ -1,14 +1,11 @@
-
 var list = document.getElementById("list");
 let map;
-
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: 30.2672, lng: -97.7431 }, // Austin, Texas
     zoom: 12,
   });
 }
-
 
 function pullCrimes(latMin, latMax, lngMin, lngMax, startDate, endDate) {
   return $.ajax({
@@ -89,7 +86,6 @@ function populateMap(data) {
 
 // Call the functions.
 pullCrimes('30.259585', '30.277721', '-97.780467', '-97.763959', '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000').done(data => populateMap(data));
-
 
 
 
