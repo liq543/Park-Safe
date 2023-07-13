@@ -69,7 +69,6 @@ function getCrimeCoordinates()
       var longitude = parseFloat(data[i].longitude);
       var crimeList = parseFloat(data.length);
 
-
     }
     
   });
