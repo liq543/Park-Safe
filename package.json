@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/liq543/Park-Safe/issues"
   },
-  "homepage": "https://github.com/liq543/Park-Safe#readme"
+  "homepage": "https://github.com/liq543/Park-Safe#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.3.2"
+  }
 }
