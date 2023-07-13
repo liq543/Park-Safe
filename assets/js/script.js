@@ -19,21 +19,22 @@ function pullCrimes(latMin, latMax, lngMin, lngMax, startDate, endDate) {
       "$$app_token" : "aDsTc4XqMfmKCL0APlSxzJlQ2",
       "$where": `latitude between '${latMin}' and '${latMax}' AND longitude between '${lngMin}' and '${lngMax}' AND occ_date_time between '${startDate}' and '${endDate}'`
     }
-  }).done(function(data) {
+  });
+}
 
    // console.log("This is how many crimes in Zilker Park " + data.length);
     // console.log(data);
 
-    for(i =0; i< data.length; i++){
+    // for(i =0; i< data.length; i++){
 
-      var li = document.createElement("li");
-      var latitude = parseFloat(data[i].latitude);
-      var longitude = parseFloat(data[i].longitude);
-      var crimeList = parseFloat(data.length);
-      var crimeDateAndType =  data[i].occ_date_time + " " + data[i].crime_type;
+    //   var li = document.createElement("li");
+    //   var latitude = parseFloat(data[i].latitude);
+    //   var longitude = parseFloat(data[i].longitude);
+    //   var crimeList = parseFloat(data.length);
+    //   var crimeDateAndType =  data[i].occ_date_time + " " + data[i].crime_type;
 
-      li.textContent = crimeDateAndType;
-      list.appendChild(li);
+    //   li.textContent = crimeDateAndType;
+    //   list.appendChild(li);
 
 
     
@@ -41,10 +42,9 @@ function pullCrimes(latMin, latMax, lngMin, lngMax, startDate, endDate) {
      // console.log("This is the both " + crimeDateAndType);
   
   
-    }
     
-  });
-}
+    
+//}
 
 
 function populateMap(data) {
