@@ -7,3 +7,22 @@
 html, section {
     height: 100%;
 }
+
+
+.container, .searchDropDn {
+    margin: 10px;
+    padding: 5px;
+    width: 50%;
+}
+
+#searchBtnBar {
+    margin-top: 5px;
+}
+
+
+@media screen and (max-width: 639px) {
+    .container, .searchDropDn {
+        margin: 5px auto;
+        width: 75%;
+    }
+}
