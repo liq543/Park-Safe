@@ -7,6 +7,7 @@ function initMap() {
   });
 }
 
+
 var ajaxTime= new Date().getTime();
 $.ajax({
   url: "https://data.austintexas.gov/resource/fdj4-gpfu.json",
@@ -19,5 +20,9 @@ $.ajax({
 }).done(function(data) {
 var totalTime = new Date().getTime()-ajaxTime;
 alert("Retrieved " + data.length + " records from the dataset! This took:" + totalTime);
+    "$$app_token" : "aDsTc4XqMfmKCL0APlSxzJlQ2"
+  }
+}).done(function(data) {
+alert("Retrieved " + data.length + " records from the dataset!");
 console.log(data);
 });
