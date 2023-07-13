@@ -16,7 +16,7 @@
 
     <header>
         <nav class="bg-gray-800">
-            <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+            <div class="mx-0 max-w-7xl px-2 sm:px-6 lg:px-8">
                 <div class="relative flex h-16 items-center justify-between">
                     <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
                         <!-- Mobile menu button-->
@@ -78,12 +78,13 @@
     <!-- Basic structure, adding basic tailwind classes to elements -->
     <div class="container">
         <section class="bg-gray-200 relative h-72 flex items-center justify-center">
-            <div id="map" class="w-full h-full absolute"></div>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
             <script
                 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFg0zj2Tvxi3_bGjMrizncDaitg-XmNVM&callback=initMap"
                 async defer></script>
             <script src="assets/js/script.js"></script>
+            <div id="map" class="w-full h-full absolute"></div>
+
         </section>
 
 
