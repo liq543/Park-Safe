@@ -19,5 +19,23 @@ $.ajax({
 }).done(function(data) {
 var totalTime = new Date().getTime()-ajaxTime;
 alert("Retrieved " + data.length + " records from the dataset! This took:" + totalTime);
+for (const crime of data) {
+  if (crime.latitude && crime.longitude) {
+    let lat = parseFloat(crime.latitude);
+    let lng = parseFloat(crime.longitude);
+
+    if (isNaN(lat) || isNaN(lng)) {
+      console.log('Invalid lat or lng:', crime.latitude, crime.longitude);
+    } else {
+      new google.maps.Marker({
+        position: { lat: lat, lng: lng },
+        map,
+        title: crime.crime_type,
+      });
+    }
+  } else {
+    console.log('Missing latitude or longitude:', crime);
+  }
+}
 console.log(data);
 });
