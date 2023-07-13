@@ -6,3 +6,15 @@ function initMap() {
     zoom: 12,
   });
 }
+
+$.ajax({
+  url: "https://data.austintexas.gov/resource/fdj4-gpfu.json",
+  type: "GET",
+  data: {
+    "$limit" : 5000,
+    "$$app_token" : "aDsTc4XqMfmKCL0APlSxzJlQ2"
+  }
+}).done(function(data) {
+alert("Retrieved " + data.length + " records from the dataset!");
+console.log(data);
+});
