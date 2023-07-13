@@ -15,12 +15,14 @@ $.ajax({
   data: {
     "$limit" : 5000,
     "$$app_token" : "aDsTc4XqMfmKCL0APlSxzJlQ2",
-    "$where": "occ_date_time between '2023-01-01T00:00:00.000' and '2023-02-01T23:59:59.000'"
+    // "$where": "occ_date_time between '2023-01-01T00:00:00.000' and '2023-02-01T23:59:59.000'"
+    "$where": "latitude between '30.260984' and '30.275586' AND longitude between '-97.775581' and '-97.770843'"
   }
 }).done(function(data) {
 
 var totalTime = new Date().getTime()-ajaxTime;
 alert("Retrieved " + data.length + " records from the dataset! This took:" + totalTime);
+
 for (const crime of data) {
   if (crime.latitude && crime.longitude) {
     let lat = parseFloat(crime.latitude);
@@ -40,9 +42,45 @@ for (const crime of data) {
   }
 }
 console.log(data);
-
-  var totalTime = new Date().getTime()-ajaxTime;
-  alert("Retrieved " + data.length + " records from the dataset! This took:" + totalTime);
-  console.log(data);
-
 });
+
+
+//Gets the latitude and longitude coordinates of the crimes
+function getCrimeCoordinates()
+{
+  $.ajax({
+    url: "https://data.austintexas.gov/resource/fdj4-gpfu.json",
+    type: "GET",
+    data: {
+      "$limit" : 5000,
+      "$$app_token" : "aDsTc4XqMfmKCL0APlSxzJlQ2",
+      "$where": "latitude between '30.260984' and '30.275586' AND longitude between '-97.775581' and '-97.770843'"
+
+      //Need to figure out between latitude and longitude
+    }
+  }).done(function(data) {
+
+    //console.log("This is Zilker Park Crimes: " + data);
+    console.log("This is how many crimes in Zilker Park " + data.length);
+
+    for(i =0; i< data.length; i++){
+  
+      var latitude = parseFloat(data[i].latitude);
+      var longitude = parseFloat(data[i].longitude);
+      var crimeList = parseFloat(data.length);
+
+
+    }
+    
+  });
+
+}
+
+
+// getCrimeCoordinates();
+
+//Write a function that returns crime in a given area
+
+
+//Zilker Park Bottom Right Corner - 30.260984, -97.770843
+//Zilker Park Top Left Corner - 30.275586, -97.775581
