@@ -1,6 +1,7 @@
 
 var list = document.getElementById("list");
 let map;
+var accordionOne = document.getElementById("accordion-collapse-body-1");
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
@@ -19,8 +20,7 @@ function pullCrimes(latMin, latMax, lngMin, lngMax, startDate, endDate) {
       "$$app_token" : "aDsTc4XqMfmKCL0APlSxzJlQ2",
       "$where": `latitude between '${latMin}' and '${latMax}' AND longitude between '${lngMin}' and '${lngMax}' AND occ_date_time between '${startDate}' and '${endDate}'`
     }
-  });
-}
+  }).done(function(data) {
 
    // console.log("This is how many crimes in Zilker Park " + data.length);
     // console.log(data);
@@ -37,13 +37,13 @@ function pullCrimes(latMin, latMax, lngMin, lngMax, startDate, endDate) {
     //   list.appendChild(li);
 
 
-      //console.log("This is the both " + crimeDateAndType);
+    //   //console.log("This is the both " + crimeDateAndType);
   
   
+    // }
     
-    
-//}
-
+  });
+}
 
 function populateMap(data) {
   var ajaxTime = new Date().getTime();
@@ -84,13 +84,15 @@ function populateMap(data) {
 }
 
 
-
 // Call the functions.
 pullCrimes('30.259585', '30.277721', '-97.780467', '-97.763959', '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000').done(data => populateMap(data));
 
 
 
-
+accordionOne.addEventListener("click", function(event){
+  var element = event.target;
+  console.log("element is: " + element);
+})
 
 
 

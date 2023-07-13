@@ -572,6 +572,10 @@ video {
   pointer-events: none;
 }
 
+.visible {
+  visibility: visible;
+}
+
 .collapse {
   visibility: collapse;
 }
@@ -634,20 +638,12 @@ video {
   display: none;
 }
 
-.h-10 {
-  height: 2.5rem;
-}
-
 .h-16 {
   height: 4rem;
 }
 
 .h-3 {
   height: 0.75rem;
-}
-
-.h-3\/4 {
-  height: 75%;
 }
 
 .h-4 {
@@ -670,20 +666,8 @@ video {
   height: 100%;
 }
 
-.min-h-screen {
-  min-height: 100vh;
-}
-
-.w-10 {
-  width: 2.5rem;
-}
-
 .w-3 {
   width: 0.75rem;
-}
-
-.w-3\/4 {
-  width: 75%;
 }
 
 .w-4 {
