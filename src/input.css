@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 /* WE HAVE TO MANUALLY SET VIEWPORT HEIGHT HERE BECAUSE GOOGLE MAPS API EXPLICITLY REQUIRES IT BE SET */
-html, body {
+
+html, section {
     height: 100%;
 }
