@@ -1,4 +1,14 @@
+
 var list = document.getElementById("list");
+let map;
+
+function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: 30.2672, lng: -97.7431 }, // Austin, Texas
+    zoom: 12,
+  });
+}
+
 
 function pullCrimes(latMin, latMax, lngMin, lngMax, startDate, endDate) {
   return $.ajax({
@@ -11,8 +21,8 @@ function pullCrimes(latMin, latMax, lngMin, lngMax, startDate, endDate) {
     }
   }).done(function(data) {
 
-    console.log("This is how many crimes in Zilker Park " + data.length);
-    console.log(data);
+   // console.log("This is how many crimes in Zilker Park " + data.length);
+    // console.log(data);
 
     for(i =0; i< data.length; i++){
 
@@ -28,7 +38,7 @@ function pullCrimes(latMin, latMax, lngMin, lngMax, startDate, endDate) {
 
     
 
-      console.log("This is the both " + crimeDateAndType);
+     // console.log("This is the both " + crimeDateAndType);
   
   
     }
@@ -48,10 +58,25 @@ function populateMap(data) {
       if (isNaN(lat) || isNaN(lng)) {
         console.log('Invalid lat or lng:', crime.latitude, crime.longitude);
       } else {
-        new google.maps.Marker({
+        // Create a marker
+        let marker = new google.maps.Marker({
           position: { lat: lat, lng: lng },
-          map,
+          map: map,
           title: crime.crime_type,
+        });
+
+        // Convert the crime date into a more friendly format
+        let crimeDate = new Date(crime.occ_date_time);
+        let formattedDate = crimeDate.toLocaleDateString("en-US");
+
+        // Create an InfoWindow
+        let infoWindow = new google.maps.InfoWindow({
+          content: `<h3>Crime Committed: ${crime.crime_type}</h3><p>Date Committed: ${formattedDate}</p>`
+        });
+
+        // Add a click listener to the marker to open the InfoWindow
+        marker.addListener('click', function() {
+          infoWindow.open(map, marker);
         });
       }
     } else {
