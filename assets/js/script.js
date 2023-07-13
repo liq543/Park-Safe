@@ -26,8 +26,6 @@ function pullCrimes(latMin, latMax, lngMin, lngMax, startDate, endDate) {
       list.appendChild(li);
 
 
-    
-
       console.log("This is the both " + crimeDateAndType);
   
   
