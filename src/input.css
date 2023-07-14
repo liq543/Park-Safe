@@ -8,6 +8,10 @@ html, section {
     height: 100%;
 }
 
+body {
+    position: relative;
+}
+
 
 .container, .searchDropDn {
     margin: 10px;
@@ -18,7 +22,6 @@ html, section {
 #searchBtnBar {
     margin-top: 5px;
 }
-
 
 @media screen and (max-width: 639px) {
     .container, .searchDropDn {
