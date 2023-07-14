@@ -1,5 +1,5 @@
 
-var list = document.getElementById("zilker-park-list");
+// var zilkerParkCrimeList = document.getElementById("zilker-park-list");
 let map;
 var accordionButton = document.querySelectorAll("button")
 var parkList = document.getElementById("accordion-collapse");
@@ -52,6 +52,13 @@ function pullCrimes(latMin, latMax, lngMin, lngMax, startDate, endDate) {
      console.log(data);
  
      for(i =0; i< data.length; i++){
+
+      // parkID = i + 1;
+      // parkIDList = "list-" + parkID;
+
+      // console.log(parkIDList);
+
+      var parkCrimeList = document.getElementById("list-1");
  
        var li = document.createElement("li");
        var latitude = parseFloat(data[i].latitude);
@@ -60,7 +67,7 @@ function pullCrimes(latMin, latMax, lngMin, lngMax, startDate, endDate) {
        var crimeDateAndType =  data[i].occ_date_time + " " + data[i].crime_type;
  
        li.textContent = crimeDateAndType;
-       list.appendChild(li);
+       parkCrimeList.appendChild(li);
  
  
        //console.log("This is the both " + crimeDateAndType);
