@@ -572,6 +572,10 @@ video {
   pointer-events: none;
 }
 
+.visible {
+  visibility: visible;
+}
+
 .collapse {
   visibility: collapse;
 }
@@ -609,13 +613,41 @@ video {
   right: 0.625rem;
 }
 
-.mx-auto {
-  margin-left: auto;
-  margin-right: auto;
+.right-0 {
+  right: 0px;
+}
+
+.top-0 {
+  top: 0px;
+}
+
+.m-4 {
+  margin: 1rem;
+}
+
+.mx-0 {
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
 .mb-2 {
   margin-bottom: 0.5rem;
+}
+
+.mr-4 {
+  margin-right: 1rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
 }
 
 .block {
@@ -634,10 +666,6 @@ video {
   display: none;
 }
 
-.h-10 {
-  height: 2.5rem;
-}
-
 .h-16 {
   height: 4rem;
 }
@@ -650,12 +678,24 @@ video {
   height: 1rem;
 }
 
+.h-6 {
+  height: 1.5rem;
+}
+
 .h-72 {
   height: 18rem;
 }
 
+.h-8 {
+  height: 2rem;
+}
+
 .h-full {
   height: 100%;
+}
+
+.min-h-screen {
+  min-height: 100vh;
 }
 
 .w-10 {
@@ -668,6 +708,14 @@ video {
 
 .w-4 {
   width: 1rem;
+}
+
+.w-6 {
+  width: 1.5rem;
+}
+
+.w-auto {
+  width: auto;
 }
 
 .w-full {
@@ -697,6 +745,10 @@ video {
 
 .list-disc {
   list-style-type: disc;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
 }
 
 .items-center {
@@ -783,6 +835,11 @@ video {
   background-color: rgb(17 24 39 / var(--tw-bg-opacity));
 }
 
+.bg-blue-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+}
+
 .p-2 {
   padding: 0.5rem;
 }
@@ -815,6 +872,11 @@ video {
   padding-bottom: 0.5rem;
 }
 
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
 .pb-3 {
   padding-bottom: 0.75rem;
 }
@@ -833,6 +895,10 @@ video {
 
 .pt-2 {
   padding-top: 0.5rem;
+}
+
+.pr-16 {
+  padding-right: 4rem;
 }
 
 .text-left {
@@ -923,6 +989,11 @@ html, section {
 .hover\:bg-gray-700:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-blue-600:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(37 99 235 / var(--tw-bg-opacity));
 }
 
 .hover\:text-white:hover {
@@ -1086,6 +1157,20 @@ html, section {
   .sm\:px-6 {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:mb-0 {
+    margin-bottom: 0px;
+  }
+
+  .md\:mr-2 {
+    margin-right: 0.5rem;
+  }
+
+  .md\:w-auto {
+    width: auto;
   }
 }
 
