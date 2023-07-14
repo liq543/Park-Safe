@@ -1,24 +1,31 @@
 
 var list = document.getElementById("zilker-park-list");
 let map;
-zilkerButton = document.getElementById("zilker-park")
+accordionButton = document.querySelectorAll("button")
 
-zilkerButton.addEventListener("click", function(event){
+//Rewrote the button clicks to be the current 3 that we have. Will need to add an id for each one. (Top starts at 1 and then it keeps going down.) Can probably make a list and append it with each having an ID.
 
-  var element = document.getElementById("accordion-collapse-body-1");
-  var visibility = element.classList.value;
-  
-  console.log(visibility);
+accordionButton.forEach(function(button){
+  button.addEventListener("click", function(event){
+    console.log("button clicked");
+    var buttonId = "accordion-collapse-body-" + event.target.id;
+    console.log("This is the button ID:" + buttonId);
+    var element = document.getElementById(buttonId);
 
-  if(visibility == "visible")
-  {
-    element.classList.value = "hidden";
+    var visibility = element.classList.value;
     
-  }
-  else if(visibility == "hidden")
-  {
-    element.classList.value = "visible";
-  }
+    console.log(visibility);
+
+    if(visibility == "visible")
+    {
+      element.classList.value = "hidden";
+      
+    }
+    else if(visibility == "hidden")
+    {
+      element.classList.value = "visible";
+    }
+  })
 })
 
 
