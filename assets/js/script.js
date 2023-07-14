@@ -1,5 +1,34 @@
-var list = document.getElementById("list");
+
+var list = document.getElementById("zilker-park-list");
 let map;
+var accordionButton = document.querySelectorAll("button")
+var parkList = document.getElementById("accordion-collapse");
+
+//Rewrote the button clicks to be the current 3 that we have. Will need to add an id for each one. (Top starts at 1 and then it keeps going down.) Can probably make a list and append it with each having an ID.
+
+accordionButton.forEach(function(button){
+  button.addEventListener("click", function(event){
+    console.log("button clicked");
+    var buttonId = "accordion-collapse-body-" + event.target.id;
+    console.log("This is the button ID:" + buttonId);
+    var element = document.getElementById(buttonId);
+
+    var visibility = element.classList.value;
+    
+    console.log(visibility);
+
+    if(visibility == "visible")
+    {
+      element.classList.value = "hidden";
+      
+    }
+    else if(visibility == "hidden")
+    {
+      element.classList.value = "visible";
+    }
+  })
+})
+
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
@@ -17,59 +46,30 @@ function pullCrimes(latMin, latMax, lngMin, lngMax, startDate, endDate) {
       "$$app_token" : "aDsTc4XqMfmKCL0APlSxzJlQ2",
       "$where": `latitude between '${latMin}' and '${latMax}' AND longitude between '${lngMin}' and '${lngMax}' AND occ_date_time between '${startDate}' and '${endDate}'`
     }
-  });
-}
+  }).done(function(data) {
 
-// async function placeSearch() {
-//   try {
-//       const searchParams = new URLSearchParams({
-//         query: 'park',
-//         ll: '30.2672,-97.7431',
-//         open_now: 'true',
-//         sort: 'DISTANCE'
-//       });
-//       const results = await fetch(
-//         `https://api.foursquare.com/v3/places/search?${searchParams}`,
-//         {
-//           method: 'GET',
-//           headers: {
-//             Accept: 'application/json',
-//             Authorization: 'YOUR ACCESS TOKEN',
-//           }
-//         }
-//       );
-//       const data = await results.json();
-//       return data;
-//   } catch (err) {
-//       console.error(err);
-//   }
-// }
-
-
-   // console.log("This is how many crimes in Zilker Park " + data.length);
-    // console.log(data);
-
-    // for(i =0; i< data.length; i++){
-
-    //   var li = document.createElement("li");
-    //   var latitude = parseFloat(data[i].latitude);
-    //   var longitude = parseFloat(data[i].longitude);
-    //   var crimeList = parseFloat(data.length);
-    //   var crimeDateAndType =  data[i].occ_date_time + " " + data[i].crime_type;
-
-    //   li.textContent = crimeDateAndType;
-    //   list.appendChild(li);
-
-
-    
-
-     // console.log("This is the both " + crimeDateAndType);
-  
-  
-    
-    
-//}
-
+    console.log("This is how many crimes in Zilker Park " + data.length);
+     console.log(data);
+ 
+     for(i =0; i< data.length; i++){
+ 
+       var li = document.createElement("li");
+       var latitude = parseFloat(data[i].latitude);
+       var longitude = parseFloat(data[i].longitude);
+       var crimeList = parseFloat(data.length);
+       var crimeDateAndType =  data[i].occ_date_time + " " + data[i].crime_type;
+ 
+       li.textContent = crimeDateAndType;
+       list.appendChild(li);
+ 
+ 
+       //console.log("This is the both " + crimeDateAndType);
+   
+   
+     }
+     
+   });
+ }
 
 function populateMap(data) {
   var ajaxTime = new Date().getTime();
@@ -108,12 +108,79 @@ function populateMap(data) {
     }
   }
 }
-// Add thes back in below in front of the dates: 
-// '30.259585', '30.277721', '-97.780467', '-97.763959', 
 
-// Call the functions.
-pullCrimes('2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000').done(data => populateMap(data));
 
+// Each park array contains name, latitude, and longitude (in that order)
+var zilkerPark = ["Zilker Park", "30.2669","-97.7728"];
+var ladyBirdLake = ["Lady Bird Lake", "30.2649", "-97.7471"];
+var bartonCreekGreenbelt = ["Barton Creek Greenbelt", "30.2619", "-97.7953"];
+var mcKinneyFallsStatePark = ["McKinney Falls State Park", "30.1587", "-97.6920"];
+var emmaLongMetroPark = ["Emma Long Metropolitan Park", "30.3599", "-97.8270"];
+
+var AustinParks = [zilkerPark, ladyBirdLake, bartonCreekGreenbelt, mcKinneyFallsStatePark, emmaLongMetroPark];
+
+
+//For this function, we used chatGPT to help us make it
+function makeParkList() {
+  var accordion = document.getElementById("accordion-collapse");
+
+  for(let i = 0; i < AustinParks.length; i++) {
+      let parkNumber = i + 4;
+      
+      let heading = document.createElement("h2");
+      heading.setAttribute("id", "accordion-collapse-heading-" + parkNumber);
+
+      let button = document.createElement("button");
+      button.setAttribute("type", "button");
+      button.setAttribute("id", parkNumber);
+      button.setAttribute("class", "flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 accordion-button");
+      button.setAttribute("data-accordion-target", "#accordion-collapse-body-" + parkNumber);
+      button.setAttribute("aria-expanded", "false");
+      button.setAttribute("aria-controls", "accordion-collapse-body-" + parkNumber);
+
+      let span = document.createElement("span");
+      span.textContent = AustinParks[i][0];
+      button.appendChild(span);
+      
+      let svg = document.createElement("svg");
+      svg.setAttribute("data-accordion-icon", "");
+      svg.setAttribute("class", "w-3 h-3 rotate-180 shrink-0");
+      svg.setAttribute("aria-hidden", "true");
+      svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+      svg.setAttribute("fill", "none");
+      svg.setAttribute("viewBox", "0 0 10 6");
+      
+      let path = document.createElement("path");
+      path.setAttribute("stroke", "currentColor");
+      path.setAttribute("stroke-linecap", "round");
+      path.setAttribute("stroke-linejoin", "round");
+      path.setAttribute("stroke-width", "2");
+      path.setAttribute("d", "M9 5 5 1 1 5");
+      svg.appendChild(path);
+      
+      button.appendChild(svg);
+      
+      let div = document.createElement("div");
+      div.setAttribute("id", "accordion-collapse-body-" + parkNumber);
+      div.setAttribute("class", "hidden");
+      div.setAttribute("aria-labelledby", "accordion-collapse-heading-" + parkNumber);
+
+      let content = document.createElement("div");
+      content.setAttribute("class", "p-5 border border-b-0 border-gray-200 dark:border-gray-700");
+
+      // Add content here as necessary
+
+      div.appendChild(content);
+
+      heading.appendChild(button);
+      accordion.appendChild(heading);
+      accordion.appendChild(div);
+  }
+}
+
+
+
+// console.log("This should be Zilker Park: " + AustinParks[0][0]);
 
 // Each park array contains: park name[0], northwest corner latitude[1], northwest corner longitude[2], southeast corner latitude[3], southeast corner longitude [4]
 var zilkerPark = ["Zilker Park", "30.276187", "-97.776181", "30.260135", "-97.771194"];
@@ -132,3 +199,9 @@ var bullCreekGreenbelt = ["Bull Creek Greenbelt", "30.385492", "-97.784090", "30
 
 // Array of all parks:
 var AustinParks = [zilkerPark, ladyBirdLake, bartonCreekGreenbelt, mcKinneyFallsStatePark, emmaLongMetroPark, walCreekMetroPark, peasePark, royGuerreroPark, mayfieldPark,austinNatAndSciCent, shoalCreekGreenbelt, muellerLakePark, bullCreekGreenbelt];
+// -97.780467
+// -97.763959
+
+// Call the functions.
+makeParkList();
+pullCrimes('30.259585', '30.277721', '-97.780467', '-97.763959', '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000').done(data => populateMap(data));

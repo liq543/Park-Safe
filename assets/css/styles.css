@@ -572,6 +572,10 @@ video {
   pointer-events: none;
 }
 
+.visible {
+  visibility: visible;
+}
+
 .collapse {
   visibility: collapse;
 }
@@ -690,8 +694,12 @@ video {
   height: 100%;
 }
 
-.h-10 {
-  height: 2.5rem;
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.w-10 {
+  width: 2.5rem;
 }
 
 .w-3 {
