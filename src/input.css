@@ -36,7 +36,7 @@ header img {
 }
 
 @media screen and (max-width: 639px) {
-    .containerMap, .searchDropDn {
+    .container {
         margin: 5px auto;
         width: 75%;
     }
