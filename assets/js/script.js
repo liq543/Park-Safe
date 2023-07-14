@@ -22,31 +22,6 @@ var bullCreekGreenbelt = ["Bull Creek Greenbelt", "30.385492", "-97.784090", "30
 // Array of all parks:
 var AustinParks = [zilkerPark, ladyBirdLake, bartonCreekGreenbelt, mcKinneyFallsStatePark, emmaLongMetroPark, walCreekMetroPark, peasePark, royGuerreroPark, mayfieldPark,austinNatAndSciCent, shoalCreekGreenbelt, muellerLakePark, bullCreekGreenbelt];
 
-//Rewrote the button clicks to be the current 3 that we have. Will need to add an id for each one. (Top starts at 1 and then it keeps going down.) Can probably make a list and append it with each having an ID.
-
-accordionButton.forEach(function(button){
-  button.addEventListener("click", function(event){
-    console.log("button clicked");
-    var buttonId = "accordion-collapse-body-" + event.target.id;
-    console.log("This is the button ID:" + buttonId);
-    var element = document.getElementById(buttonId);
-
-    var visibility = element.classList.value;
-    
-    console.log(visibility);
-
-    if(visibility == "visible")
-    {
-      element.classList.value = "hidden";
-      
-    }
-    else if(visibility == "hidden")
-    {
-      element.classList.value = "visible";
-    }
-  })
-})
-
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
@@ -55,7 +30,7 @@ function initMap() {
   });
 }
 
-function pullCrimes(latMin, latMax, lngMin, lngMax, startDate, endDate) {
+function pullCrimes(latMin, latMax, lngMin, lngMax, startDate, endDate, list) {
   return $.ajax({
     url: "https://data.austintexas.gov/resource/fdj4-gpfu.json",
     type: "GET",
@@ -70,31 +45,48 @@ function pullCrimes(latMin, latMax, lngMin, lngMax, startDate, endDate) {
      console.log(data);
      console.log("This is Austin Parks Length " + AustinParks.length);
 
+     for(i =0; i< data.length; i++){
 
-     for(i = 0; i < AustinParks.length; i++)
-     {
-      
-      var parkIDList;
-      var parkID = 1;
-      parkIDList = "list-" + parkID;
-      for(i =0; i< data.length; i++){
-        console.log(parkIDList);
-  
-        var parkCrimeList = document.getElementById(parkIDList);
-   
-         var li = document.createElement("li");
-         var latitude = parseFloat(data[i].latitude);
-         var longitude = parseFloat(data[i].longitude);
-         var crimeList = parseFloat(data.length);
-         var crimeDateAndType =  data[i].occ_date_time + " " + data[i].crime_type;
-   
-         li.textContent = crimeDateAndType;
-         parkCrimeList.appendChild(li);
-   
-   
-         //console.log("This is the both " + crimeDateAndType);
-       }
+      var parkCrimeList = document.getElementById(list);
+ 
+       var li = document.createElement("li");
+       var latitude = parseFloat(data[i].latitude);
+       var longitude = parseFloat(data[i].longitude);
+       var crimeList = parseFloat(data.length);
+       var crimeDateAndType =  data[i].occ_date_time + " " + data[i].crime_type;
+ 
+       li.textContent = crimeDateAndType;
+       parkCrimeList.appendChild(li);
+ 
+ 
+       //console.log("This is the both " + crimeDateAndType);
      }
+
+
+    //  for(i = 0; i < AustinParks.length; i++)
+    //  {
+      
+    //   var parkIDList;
+    //   var parkID = 1;
+    //   parkIDList = "list-" + parkID;
+    //   for(i =0; i< data.length; i++){
+    //     console.log(parkIDList);
+  
+    //     var parkCrimeList = document.getElementById("list-1");
+   
+    //      var li = document.createElement("li");
+    //      var latitude = parseFloat(data[i].latitude);
+    //      var longitude = parseFloat(data[i].longitude);
+    //      var crimeList = parseFloat(data.length);
+    //      var crimeDateAndType =  data[i].occ_date_time + " " + data[i].crime_type;
+   
+    //      li.textContent = crimeDateAndType;
+    //      parkCrimeList.appendChild(li);
+   
+   
+    //      //console.log("This is the both " + crimeDateAndType);
+    //    }
+    //  }
  
      
    });
@@ -187,7 +179,11 @@ function makeParkList() {
       let content = document.createElement("div");
       content.setAttribute("class", "p-5 border border-b-0 border-gray-200 dark:border-gray-700");
 
+      let ul = document.createElement("ul");
+      ul.setAttribute("id", "list-" + parkNumber);
+
       // Add content here as necessary
+      content.appendChild(ul);
 
       div.appendChild(content);
 
@@ -224,4 +220,4 @@ function attachButtonListeners() {
 
 // Call the functions.
 makeParkList();
-pullCrimes('30.259585', '30.277721', '-97.780467', '-97.763959', '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000').done(data => populateMap(data));
+pullCrimes('30.259585', '30.277721', '-97.780467', '-97.763959', '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-4").done(data => populateMap(data));
