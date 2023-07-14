@@ -123,15 +123,36 @@ var austinNatAndSciCent = ["Austin Nature and Science Center", "30.273219", "-97
 var shoalCreekGreenbelt = ["Shoal Creek Greenbelt", "30.307949", "-97.748550", "30.265098", "-97.750992"];
 var muellerLakePark = ["Mueller Lake Park", "30.298086", "-97.709049", "30.294390", "-97.702620"];
 var bullCreekGreenbelt = ["Bull Creek Greenbelt", "30.385492", "-97.784090", "30.365006", "-97.764350"]
+var garrisonPark = ["Garrison District Park", "30.213989", "-97.802447", "30.208858', '-97.795642"];
+var lilStacyPark = ["Little Stacy Park", "30.248717", "-97.744906", "30.245923", "-97.743049"];
+var southwestGreenway = ["Southwest Greenway", "30.294160", "-97.707727", "30.288103", "-97.694397"];
+var balconesDistPark = ["Balcones District Park", "30.415541", "-97.721563", "30.410098", "-97.711759"];
+var MillsPondRecArea = ["Mills Pond Recreation Area", "30.456040", "-97.681981", "30.448297", "-97.678249"];
+var northwestDistPark = ["Northwest District Park", "30.350764", "-97.744671", "30.345539", "-97.739800"];
+var eastwoodsPark = ["Eastwoods Park", "30.292031", "-97.733301", "30.289317", "-97.730634"];
+var greatHillsNeighPark = ["Great Hills Neighborhood Park", "30.419470", "-97.763739", "30.401857", "-97.750022"];
+var gracywoodsPark = ["Gracywoods Neighborhood Park", "30.407359", "-97.697939", "30.402824", "-97.694719"];
+var austinMemParkCem = ["Austin Memorial Park Cemetery", "30.334581", "-97.755217", "30.327140", "-97.748120"];
+var waterlooPark = ["Waterloo Park", "30.275991", "-97.736708", "30.272395", "-97.734629"];
+var westAustinNeighPark = ["West Austin Neighborhood Park", "30.277813", "-97.758416", "30.275773", "-97.756686"];
+var southAusNeighPark = ["South Austin Neighborhood Park", "30.243738", "-97.770162", "30.239701", "-97.765729"];
+var nicholasDawsonNeighPark = ["Nicholas Dawson Neighborhood Park", "30.253731", "-97.755859", "30.251591", "-97.753845"]
+var gillisNeighPark = ["Gillis Neighborhood Park", "30.241941", "-97.760869", "30.239276", "-97.758031"]
+var adamsHemphillNeighPark = ["Adams-Hemphill Neighborhood Park", "30.299335", "-97.742043", "30.293331", "-97.737493"];
+var reillySchoolPark = ["Reilly School Park", "30.328636", "-97.721011", "30.325990", "-97.718484"];
 
 // Array of all parks:
-var AustinParks = [zilkerPark, ladyBirdLake, bartonCreekGreenbelt, mcKinneyFallsStatePark, emmaLongMetroPark, walCreekMetroPark, peasePark, royGuerreroPark, mayfieldPark,austinNatAndSciCent, shoalCreekGreenbelt, muellerLakePark, bullCreekGreenbelt];
+var austinParks = [zilkerPark, ladyBirdLake, bartonCreekGreenbelt, mcKinneyFallsStatePark, emmaLongMetroPark, walCreekMetroPark, peasePark, royGuerreroPark, mayfieldPark,austinNatAndSciCent, shoalCreekGreenbelt, muellerLakePark, bullCreekGreenbelt, garrisonPark, lilStacyPark, southwestGreenway, balconesDistPark, MillsPondRecArea, northwestDistPark, eastwoodsPark, greatHillsNeighPark, gracywoodsPark, austinMemParkCem, waterlooPark, westAustinNeighPark, southAusNeighPark, nicholasDawsonNeighPark, gillisNeighPark, adamsHemphillNeighPark, reillySchoolPark];
+
+console.log (austinParks);
+
+// 5 more parks needed to get to 30 after westAust
 
 //For this function, we used chatGPT to help us make it
 function makeParkList() {
   var accordion = document.getElementById("accordion-collapse");
 
-  for(let i = 0; i < AustinParks.length; i++) {
+  for(let i = 0; i < austinParks.length; i++) {
       let parkNumber = i + 4;
       
       let heading = document.createElement("h2");
@@ -146,7 +167,7 @@ function makeParkList() {
       button.setAttribute("aria-controls", "accordion-collapse-body-" + parkNumber);
 
       let span = document.createElement("span");
-      span.textContent = AustinParks[i][0];
+      span.textContent = austinParks[i][0];
       button.appendChild(span);
       
       let svg = document.createElement("svg");
