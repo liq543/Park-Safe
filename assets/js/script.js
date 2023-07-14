@@ -108,22 +108,27 @@ function populateMap(data) {
     }
   }
 }
-
-
+// Add thes back in below in front of the dates: 
+// '30.259585', '30.277721', '-97.780467', '-97.763959', 
 
 // Call the functions.
-pullCrimes('30.259585', '30.277721', '-97.780467', '-97.763959', '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000').done(data => populateMap(data));
+pullCrimes('2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000').done(data => populateMap(data));
 
-var AustinParks = [zilkerPark, ladyBirdLake, bartonCreekGreenbelt, mcKinneyFallsStatePark, emmaLongMetroPark];
-// Each park array contains name, latitude, and longitude (in that order)
-var zilkerPark = ["Zilker Park", "30.2669","-97.7728"];
-var ladyBirdLake = ["Lady Bird Lake", "30.2649", "-97.7471"];
-var bartonCreekGreenbelt = ["Barton Creek Greenbelt", "30.2619", "-97.7953"];
-var mcKinneyFallsStatePark = ["McKinney Falls State Park", "30.1587", "-97.6920"];
-var emmaLongMetroPark = ["Emma Long Metropolitan Park", "30.3599", "-97.8270"];
 
-//Zilker Park Bottom Right Corner - 30.260984, -97.770843
-//Zilker Park Top Left Corner - 30.275586, -97.775581
+// Each park array contains: park name[0], northwest corner latitude[1], northwest corner longitude[2], southeast corner latitude[3], southeast corner longitude [4]
+var zilkerPark = ["Zilker Park", "30.276187", "-97.776181", "30.260135", "-97.771194"];
+var ladyBirdLake = ["Lady Bird Lake", "30.294497", "-97.788501", "30.242677", "-97.717318"];
+var bartonCreekGreenbelt = ["Barton Creek Greenbelt", "30.285798", "-97.827646", "30.234250", "-97.784231"];
+var mcKinneyFallsStatePark = ["McKinney Falls State Park", "30.202370", "-97.725063", "30.167640",  "-97.722854"];
+var emmaLongMetroPark = ["Emma Long Metropolitan Park", "30.356452", "-97.848282", "30.323719", "-97.826107"];
+var walCreekMetroPark = ["Walnut Creek Metropolitan Park", "30.388371", "-97.677382", "30.410843", "-97.709775"];
+var peasePark = ["Pease Park", "30.289109", "-97.756060", "30.280137", "-97.750709"];
+var royGuerreroPark = ["Roy G. Guerrero Colorado River Park", "30.250026", "-97.717269", "30.235685", "-97.690601"];
+var mayfieldPark = ["Mayfield Park and Nature Preserve", "30.314760", "-97.773018", "30.310082", "-97.768630"];
+var austinNatAndSciCent = ["Austin Nature and Science Center", "30.273219", "-97.775754", "30.270420", "-97.773399"];
+var shoalCreekGreenbelt = ["Shoal Creek Greenbelt", "30.307949", "-97.748550", "30.265098", "-97.750992"];
+var muellerLakePark = ["Mueller Lake Park", "30.298086", "-97.709049", "30.294390", "-97.702620"];
+var bullCreekGreenbelt = ["Bull Creek Greenbelt", "30.385492", "-97.784090", "30.365006", "-97.764350"]
 
-// -97.780467
-// -97.763959
+// Array of all parks:
+var AustinParks = [zilkerPark, ladyBirdLake, bartonCreekGreenbelt, mcKinneyFallsStatePark, emmaLongMetroPark, walCreekMetroPark, peasePark, royGuerreroPark, mayfieldPark,austinNatAndSciCent, shoalCreekGreenbelt, muellerLakePark, bullCreekGreenbelt];
