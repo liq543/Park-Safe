@@ -20,31 +20,40 @@ function pullCrimes(latMin, latMax, lngMin, lngMax, startDate, endDate) {
   });
 }
 
-// async function placeSearch() {
-//   try {
-//       const searchParams = new URLSearchParams({
-//         query: 'park',
-//         ll: '30.2672,-97.7431',
-//         open_now: 'true',
-//         sort: 'DISTANCE'
-//       });
-//       const results = await fetch(
-//         `https://api.foursquare.com/v3/places/search?${searchParams}`,
-//         {
-//           method: 'GET',
-//           headers: {
-//             Accept: 'application/json',
-//             Authorization: 'YOUR ACCESS TOKEN',
-//           }
-//         }
-//       );
-//       const data = await results.json();
-//       return data;
-//   } catch (err) {
-//       console.error(err);
-//   }
-// }
+async function placeSearch() {
+  try {
+    const searchParams = new URLSearchParams({
+      query: 'park',
+      ll: '30.2672,-97.7431',
+      open_now: 'false',
+      sort: 'DISTANCE'
+    });
+    const results = await fetch(
+      `https://api.foursquare.com/v3/places/search?${searchParams}`,
+      {
+        method: 'GET',
+        headers: {
+          Accept: 'application/json',
+          Authorization: 'fsq3lJQlMmxvABNHBGjaUkSh6Pnv5DH1UPpaGAACazV1ifM=',
+        }
+      }
+    );
+    const data = await results.json();
 
+    // Log the received data
+    console.log('Received data:', data);
+
+    // Test the amount of data received
+    const dataAmount = Object.keys(data).length;
+    console.log('Data amount:', dataAmount);
+
+    return data;
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+placeSearch();
 
    // console.log("This is how many crimes in Zilker Park " + data.length);
     // console.log(data);
