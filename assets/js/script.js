@@ -1,7 +1,8 @@
 
 var list = document.getElementById("zilker-park-list");
 let map;
-accordionButton = document.querySelectorAll("button")
+var accordionButton = document.querySelectorAll("button")
+var parkList = document.getElementById("accordion-collapse");
 
 //Rewrote the button clicks to be the current 3 that we have. Will need to add an id for each one. (Top starts at 1 and then it keeps going down.) Can probably make a list and append it with each having an ID.
 
@@ -109,10 +110,6 @@ function populateMap(data) {
 }
 
 
-// Call the functions.
-pullCrimes('30.259585', '30.277721', '-97.780467', '-97.763959', '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000').done(data => populateMap(data));
-
-var AustinParks = [zilkerPark, ladyBirdLake, bartonCreekGreenbelt, mcKinneyFallsStatePark, emmaLongMetroPark];
 // Each park array contains name, latitude, and longitude (in that order)
 var zilkerPark = ["Zilker Park", "30.2669","-97.7728"];
 var ladyBirdLake = ["Lady Bird Lake", "30.2649", "-97.7471"];
@@ -120,8 +117,77 @@ var bartonCreekGreenbelt = ["Barton Creek Greenbelt", "30.2619", "-97.7953"];
 var mcKinneyFallsStatePark = ["McKinney Falls State Park", "30.1587", "-97.6920"];
 var emmaLongMetroPark = ["Emma Long Metropolitan Park", "30.3599", "-97.8270"];
 
+var AustinParks = [zilkerPark, ladyBirdLake, bartonCreekGreenbelt, mcKinneyFallsStatePark, emmaLongMetroPark];
+
+
+//For this function, we used chatGPT to help us make it
+function makeParkList() {
+  var accordion = document.getElementById("accordion-collapse");
+
+  for(let i = 0; i < AustinParks.length; i++) {
+      let parkNumber = i + 4;
+      
+      let heading = document.createElement("h2");
+      heading.setAttribute("id", "accordion-collapse-heading-" + parkNumber);
+
+      let button = document.createElement("button");
+      button.setAttribute("type", "button");
+      button.setAttribute("id", parkNumber);
+      button.setAttribute("class", "flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 accordion-button");
+      button.setAttribute("data-accordion-target", "#accordion-collapse-body-" + parkNumber);
+      button.setAttribute("aria-expanded", "false");
+      button.setAttribute("aria-controls", "accordion-collapse-body-" + parkNumber);
+
+      let span = document.createElement("span");
+      span.textContent = AustinParks[i][0];
+      button.appendChild(span);
+      
+      let svg = document.createElement("svg");
+      svg.setAttribute("data-accordion-icon", "");
+      svg.setAttribute("class", "w-3 h-3 rotate-180 shrink-0");
+      svg.setAttribute("aria-hidden", "true");
+      svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+      svg.setAttribute("fill", "none");
+      svg.setAttribute("viewBox", "0 0 10 6");
+      
+      let path = document.createElement("path");
+      path.setAttribute("stroke", "currentColor");
+      path.setAttribute("stroke-linecap", "round");
+      path.setAttribute("stroke-linejoin", "round");
+      path.setAttribute("stroke-width", "2");
+      path.setAttribute("d", "M9 5 5 1 1 5");
+      svg.appendChild(path);
+      
+      button.appendChild(svg);
+      
+      let div = document.createElement("div");
+      div.setAttribute("id", "accordion-collapse-body-" + parkNumber);
+      div.setAttribute("class", "hidden");
+      div.setAttribute("aria-labelledby", "accordion-collapse-heading-" + parkNumber);
+
+      let content = document.createElement("div");
+      content.setAttribute("class", "p-5 border border-b-0 border-gray-200 dark:border-gray-700");
+
+      // Add content here as necessary
+
+      div.appendChild(content);
+
+      heading.appendChild(button);
+      accordion.appendChild(heading);
+      accordion.appendChild(div);
+  }
+}
+
+
+
+// console.log("This should be Zilker Park: " + AustinParks[0][0]);
+
 //Zilker Park Bottom Right Corner - 30.260984, -97.770843
 //Zilker Park Top Left Corner - 30.275586, -97.775581
 
 // -97.780467
 // -97.763959
+
+// Call the functions.
+makeParkList();
+pullCrimes('30.259585', '30.277721', '-97.780467', '-97.763959', '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000').done(data => populateMap(data));
