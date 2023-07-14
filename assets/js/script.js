@@ -1,7 +1,7 @@
 
-var list = document.getElementById("list");
+var list = document.getElementById("zilker-park-list");
 let map;
-zilkerButton = document.getElementById("")
+zilkerButton = document.getElementById("zilker-park")
 
 zilkerButton.addEventListener("click", function(event){
 
@@ -20,7 +20,6 @@ zilkerButton.addEventListener("click", function(event){
     element.classList.value = "visible";
   }
 })
-
 
 
 function initMap() {
