@@ -1,8 +1,7 @@
 
-var list = document.getElementById("zilker-park-list");
-let zilkerButton = document.getElementById("zilker-park");
-
+var list = document.getElementById("list");
 let map;
+zilkerButton = document.getElementById("")
 
 zilkerButton.addEventListener("click", function(event){
 
@@ -31,7 +30,6 @@ function initMap() {
   });
 }
 
-
 function pullCrimes(latMin, latMax, lngMin, lngMax, startDate, endDate) {
   return $.ajax({
     url: "https://data.austintexas.gov/resource/fdj4-gpfu.json",
@@ -43,28 +41,28 @@ function pullCrimes(latMin, latMax, lngMin, lngMax, startDate, endDate) {
     }
   }).done(function(data) {
 
-   console.log("This is how many crimes in Zilker Park " + data.length);
-    console.log(data);
-
-    for(i =0; i< data.length; i++){
-
-      var li = document.createElement("li");
-      var latitude = parseFloat(data[i].latitude);
-      var longitude = parseFloat(data[i].longitude);
-      var crimeList = parseFloat(data.length);
-      var crimeDateAndType =  data[i].occ_date_time + " " + data[i].crime_type;
-
-      li.textContent = crimeDateAndType;
-      list.appendChild(li);
-
-
-      //console.log("This is the both " + crimeDateAndType);
-  
-  
-    }
-    
-  });
-}
+    console.log("This is how many crimes in Zilker Park " + data.length);
+     console.log(data);
+ 
+     for(i =0; i< data.length; i++){
+ 
+       var li = document.createElement("li");
+       var latitude = parseFloat(data[i].latitude);
+       var longitude = parseFloat(data[i].longitude);
+       var crimeList = parseFloat(data.length);
+       var crimeDateAndType =  data[i].occ_date_time + " " + data[i].crime_type;
+ 
+       li.textContent = crimeDateAndType;
+       list.appendChild(li);
+ 
+ 
+       //console.log("This is the both " + crimeDateAndType);
+   
+   
+     }
+     
+   });
+ }
 
 function populateMap(data) {
   var ajaxTime = new Date().getTime();
@@ -107,7 +105,6 @@ function populateMap(data) {
 
 // Call the functions.
 pullCrimes('30.259585', '30.277721', '-97.780467', '-97.763959', '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000').done(data => populateMap(data));
-
 
 
   

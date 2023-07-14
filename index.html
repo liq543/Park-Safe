@@ -1,5 +1,3 @@
-
-
 <!-- This is a test comment -->
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +7,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Is My Park Safe?</title>
-    <link rel="stylesheet" href="assets/css/styles.css" .css>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.3/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body>
@@ -56,6 +55,7 @@
                             </div>
                         </div>
                     </div>
+
                     <!-- Mobile menu, show/hide based on menu state. -->
                     <div class="sm:hidden" id="mobile-menu">
                         <div class="space-y-1 px-2 pb-3 pt-2">
@@ -75,13 +75,12 @@
     </header>
 
 
+
     <!-- Basic structure, adding basic tailwind classes to elements -->
-    <div class="container">
+    <div class="container relative">
         <section class="bg-gray-200 relative h-72 flex items-center justify-center">
             <div id="map" class="w-full h-full absolute"></div>
-
         </section>
-
 
         <form id="searchBtnBar">
             <label for="default-search"
@@ -102,6 +101,7 @@
             </div>
         </form>
     </div>
+
     <div class="searchDropDn">
         <div id="accordion-collapse" data-accordion="collapse">
             <h2 id="accordion-collapse-heading-1">
@@ -185,12 +185,8 @@
             </div>
         </div>
     </div>
-</body>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFg0zj2Tvxi3_bGjMrizncDaitg-XmNVM&callback=initMap"
-    async defer></script>
-<script src="assets/js/script.js"></script>
+
+</body>
 
 </html>
