@@ -9,22 +9,34 @@ html, section {
 }
 
 body {
-    position: relative;
+    background-color: rgb(239, 242, 245);
 }
 
-
-.container, .searchDropDn {
-    margin: 10px;
+.backnavcolor, #default-search {
+    background-color: #2d2a32;
+}
+.containerMap, .searchDropDn {
+    margin: 10px auto;
     padding: 5px;
-    width: 50%;
+    width: 75%;
 }
 
 #searchBtnBar {
     margin-top: 5px;
 }
 
+header img {
+    max-width: 100%;
+}
+
+.carousel {
+    max-width: 100%;
+    margin: 10px auto;
+
+}
+
 @media screen and (max-width: 639px) {
-    .container, .searchDropDn {
+    .containerMap, .searchDropDn {
         margin: 5px auto;
         width: 75%;
     }
