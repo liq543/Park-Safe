@@ -1,7 +1,28 @@
 
-var list = document.getElementById("list");
+var list = document.getElementById("zilker-park-list");
+let zilkerButton = document.getElementById("zilker-park");
+
 let map;
-var accordionOne = document.getElementById("accordion-collapse-body-1");
+
+zilkerButton.addEventListener("click", function(event){
+
+  var element = document.getElementById("accordion-collapse-body-1");
+  var visibility = element.classList.value;
+  
+  console.log(visibility);
+
+  if(visibility == "visible")
+  {
+    element.classList.value = "hidden";
+    
+  }
+  else if(visibility == "hidden")
+  {
+    element.classList.value = "visible";
+  }
+})
+
+
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
@@ -22,25 +43,25 @@ function pullCrimes(latMin, latMax, lngMin, lngMax, startDate, endDate) {
     }
   }).done(function(data) {
 
-   // console.log("This is how many crimes in Zilker Park " + data.length);
-    // console.log(data);
+   console.log("This is how many crimes in Zilker Park " + data.length);
+    console.log(data);
 
-    // for(i =0; i< data.length; i++){
+    for(i =0; i< data.length; i++){
 
-    //   var li = document.createElement("li");
-    //   var latitude = parseFloat(data[i].latitude);
-    //   var longitude = parseFloat(data[i].longitude);
-    //   var crimeList = parseFloat(data.length);
-    //   var crimeDateAndType =  data[i].occ_date_time + " " + data[i].crime_type;
+      var li = document.createElement("li");
+      var latitude = parseFloat(data[i].latitude);
+      var longitude = parseFloat(data[i].longitude);
+      var crimeList = parseFloat(data.length);
+      var crimeDateAndType =  data[i].occ_date_time + " " + data[i].crime_type;
 
-    //   li.textContent = crimeDateAndType;
-    //   list.appendChild(li);
+      li.textContent = crimeDateAndType;
+      list.appendChild(li);
 
 
-    //   //console.log("This is the both " + crimeDateAndType);
+      //console.log("This is the both " + crimeDateAndType);
   
   
-    // }
+    }
     
   });
 }
@@ -89,10 +110,7 @@ pullCrimes('30.259585', '30.277721', '-97.780467', '-97.763959', '2023-06-01T00:
 
 
 
-accordionOne.addEventListener("click", function(event){
-  var element = event.target;
-  console.log("element is: " + element);
-})
+  
 
 
 
