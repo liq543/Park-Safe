@@ -20,40 +20,49 @@ function pullCrimes(latMin, latMax, lngMin, lngMax, startDate, endDate) {
   });
 }
 
-async function placeSearch() {
-  try {
-    const searchParams = new URLSearchParams({
-      query: 'park',
-      ll: '30.2672,-97.7431',
-      open_now: 'false',
-      sort: 'DISTANCE'
-    });
-    const results = await fetch(
-      `https://api.foursquare.com/v3/places/search?${searchParams}`,
-      {
-        method: 'GET',
-        headers: {
-          Accept: 'application/json',
-          Authorization: 'fsq3lJQlMmxvABNHBGjaUkSh6Pnv5DH1UPpaGAACazV1ifM=',
-        }
-      }
-    );
-    const data = await results.json();
+// Fix this function to find every park in Austin Texas
+// async function placeSearch() {
+//   try {
+//     const searchParams = new URLSearchParams({
+//       query: 'park',
+//       ll: '30.2672,-97.7431',
+//       open_now: 'false',
+//       sort: 'DISTANCE',
+//       limit: 50,
+//     });
+//     const results = await fetch(
+//       `https://api.foursquare.com/v3/places/search?${searchParams}`,
+//       {
+//         method: 'GET',
+//         headers: {
+//           Accept: 'application/json',
+//           Authorization: 'fsq3lJQlMmxvABNHBGjaUkSh6Pnv5DH1UPpaGAACazV1ifM=',
+//         }
+//       }
+//     );
+//     const data = await results.json();
 
-    // Log the received data
-    console.log('Received data:', data);
+//     // Filter data to include only parks
+//     const parkData = filterParks(data);
 
-    // Test the amount of data received
-    const dataAmount = Object.keys(data).length;
-    console.log('Data amount:', dataAmount);
+//     console.log('Filtered park data:', parkData);
 
-    return data;
-  } catch (err) {
-    console.error(err);
-  }
-}
+//     return parkData;
+//   } catch (err) {
+//     console.error(err);
+//   }
+// }
 
-placeSearch();
+// function filterParks(data) {
+//   if (!data.response || !Array.isArray(data.response.venues)) {
+//     console.error("Unexpected API response structure");
+//     return [];
+//   }
+
+// Assumes the 'name' property of each venue is the one that might contain "park"
+//   return data.response.venues.filter(venue => venue.name.toLowerCase().includes('park'));
+// }
+// placeSearch();
 
    // console.log("This is how many crimes in Zilker Park " + data.length);
     // console.log(data);
@@ -128,8 +137,8 @@ pullCrimes('30.259585', '30.277721', '-97.780467', '-97.763959', '2023-06-01T00:
 
 
 
-//Zilker Park Bottom Right Corner - 30.260984, -97.770843
-//Zilker Park Top Left Corner - 30.275586, -97.775581
+//Zilker Park Bottom Right Corner - 30.259585, -97.780467
+//Zilker Park Top Left Corner - 30.277721, -97.763959
 
 // -97.780467
 // -97.763959
