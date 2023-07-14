@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Is My Park Safe?</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.3/dist/flatpickr.min.css">
-    <link rel="stylesheet" href="assets/css/styles.css" .css>
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body>
@@ -76,12 +76,6 @@
     <!-- Basic structure, adding basic tailwind classes to elements -->
     <div class="container relative">
         <section class="bg-gray-200 relative h-72 flex items-center justify-center">
-            <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-            <script
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFg0zj2Tvxi3_bGjMrizncDaitg-XmNVM&callback=initMap"
-                async defer></script>
-            <script src="assets/js/script.js"></script>
             <div id="map" class="w-full h-full absolute"></div>
         </section>
 
@@ -211,5 +205,8 @@
 
 
 </body>
-
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFg0zj2Tvxi3_bGjMrizncDaitg-XmNVM&callback=initMap" async defer></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="assets/js/script.js"></script>
 </html>

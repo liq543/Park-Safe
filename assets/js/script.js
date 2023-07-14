@@ -1,5 +1,6 @@
 var list = document.getElementById("list");
 let map;
+
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: 30.2672, lng: -97.7431 }, // Austin, Texas
@@ -18,6 +19,32 @@ function pullCrimes(latMin, latMax, lngMin, lngMax, startDate, endDate) {
     }
   });
 }
+
+// async function placeSearch() {
+//   try {
+//       const searchParams = new URLSearchParams({
+//         query: 'park',
+//         ll: '30.2672,-97.7431',
+//         open_now: 'true',
+//         sort: 'DISTANCE'
+//       });
+//       const results = await fetch(
+//         `https://api.foursquare.com/v3/places/search?${searchParams}`,
+//         {
+//           method: 'GET',
+//           headers: {
+//             Accept: 'application/json',
+//             Authorization: 'YOUR ACCESS TOKEN',
+//           }
+//         }
+//       );
+//       const data = await results.json();
+//       return data;
+//   } catch (err) {
+//       console.error(err);
+//   }
+// }
+
 
    // console.log("This is how many crimes in Zilker Park " + data.length);
     // console.log(data);
