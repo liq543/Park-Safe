@@ -114,10 +114,13 @@ function populateMap(data) {
 // Call the functions.
 pullCrimes('30.259585', '30.277721', '-97.780467', '-97.763959', '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000').done(data => populateMap(data));
 
-
-
-
-
+var AustinParks = [zilkerPark, ladyBirdLake, bartonCreekGreenbelt, mcKinneyFallsStatePark, emmaLongMetroPark];
+// Each park array contains name, latitude, and longitude (in that order)
+var zilkerPark = ["Zilker Park", "30.2669","-97.7728"];
+var ladyBirdLake = ["Lady Bird Lake", "30.2649", "-97.7471"];
+var bartonCreekGreenbelt = ["Barton Creek Greenbelt", "30.2619", "-97.7953"];
+var mcKinneyFallsStatePark = ["McKinney Falls State Park", "30.1587", "-97.6920"];
+var emmaLongMetroPark = ["Emma Long Metropolitan Park", "30.3599", "-97.8270"];
 
 //Zilker Park Bottom Right Corner - 30.260984, -97.770843
 //Zilker Park Top Left Corner - 30.275586, -97.775581
