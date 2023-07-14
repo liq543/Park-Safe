@@ -1,4 +1,3 @@
-
 var list = document.getElementById("list");
 let map;
 
@@ -8,7 +7,6 @@ function initMap() {
     zoom: 12,
   });
 }
-
 
 function pullCrimes(latMin, latMax, lngMin, lngMax, startDate, endDate) {
   return $.ajax({
@@ -21,6 +19,32 @@ function pullCrimes(latMin, latMax, lngMin, lngMax, startDate, endDate) {
     }
   });
 }
+
+// async function placeSearch() {
+//   try {
+//       const searchParams = new URLSearchParams({
+//         query: 'park',
+//         ll: '30.2672,-97.7431',
+//         open_now: 'true',
+//         sort: 'DISTANCE'
+//       });
+//       const results = await fetch(
+//         `https://api.foursquare.com/v3/places/search?${searchParams}`,
+//         {
+//           method: 'GET',
+//           headers: {
+//             Accept: 'application/json',
+//             Authorization: 'YOUR ACCESS TOKEN',
+//           }
+//         }
+//       );
+//       const data = await results.json();
+//       return data;
+//   } catch (err) {
+//       console.error(err);
+//   }
+// }
+
 
    // console.log("This is how many crimes in Zilker Park " + data.length);
     // console.log(data);
@@ -89,7 +113,6 @@ function populateMap(data) {
 
 // Call the functions.
 pullCrimes('30.259585', '30.277721', '-97.780467', '-97.763959', '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000').done(data => populateMap(data));
-
 
 
 
