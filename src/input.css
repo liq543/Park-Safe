@@ -12,7 +12,7 @@ body {
     background-color: rgb(239, 242, 245);
 }
 
-.backnavcolor, #default-search {
+.backnavcolor, #default-search, .contribs {
     background-color: #2d2a32;
 }
 .searchDropDn {
