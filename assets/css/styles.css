@@ -635,12 +635,25 @@ video {
   margin-right: auto;
 }
 
+.mx-3 {
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+}
+
 .mb-2 {
   margin-bottom: 0.5rem;
 }
 
 .mt-2 {
   margin-top: 0.5rem;
+}
+
+.mt-px {
+  margin-top: 1px;
+}
+
+.mb-px {
+  margin-bottom: 1px;
 }
 
 .block {
