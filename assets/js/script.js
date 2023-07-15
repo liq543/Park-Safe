@@ -6,24 +6,22 @@ var parkList = document.getElementById("accordion-collapse");
 
 //Rewrote the button clicks to be the current 3 that we have. Will need to add an id for each one. (Top starts at 1 and then it keeps going down.) Can probably make a list and append it with each having an ID.
 
-accordionButton.forEach(function(button){
-  button.addEventListener("click", function(event){
+accordionButton.forEach(function (button) {
+  button.addEventListener("click", function (event) {
     console.log("button clicked");
     var buttonId = "accordion-collapse-body-" + event.target.id;
     console.log("This is the button ID:" + buttonId);
     var element = document.getElementById(buttonId);
 
     var visibility = element.classList.value;
-    
+
     console.log(visibility);
 
-    if(visibility == "visible")
-    {
+    if (visibility == "visible") {
       element.classList.value = "hidden";
-      
+
     }
-    else if(visibility == "hidden")
-    {
+    else if (visibility == "hidden") {
       element.classList.value = "visible";
     }
   })
@@ -42,34 +40,34 @@ function pullCrimes(latMin, latMax, lngMin, lngMax, startDate, endDate) {
     url: "https://data.austintexas.gov/resource/fdj4-gpfu.json",
     type: "GET",
     data: {
-      "$limit" : 5000,
-      "$$app_token" : "aDsTc4XqMfmKCL0APlSxzJlQ2",
+      "$limit": 5000,
+      "$$app_token": "aDsTc4XqMfmKCL0APlSxzJlQ2",
       "$where": `latitude between '${latMin}' and '${latMax}' AND longitude between '${lngMin}' and '${lngMax}' AND occ_date_time between '${startDate}' and '${endDate}'`
     }
-  }).done(function(data) {
+  }).done(function (data) {
 
     console.log("This is how many crimes in Zilker Park " + data.length);
-     console.log(data);
- 
-     for(i =0; i< data.length; i++){
- 
-       var li = document.createElement("li");
-       var latitude = parseFloat(data[i].latitude);
-       var longitude = parseFloat(data[i].longitude);
-       var crimeList = parseFloat(data.length);
-       var crimeDateAndType =  data[i].occ_date_time + " " + data[i].crime_type;
- 
-       li.textContent = crimeDateAndType;
-       list.appendChild(li);
- 
- 
-       //console.log("This is the both " + crimeDateAndType);
-   
-   
-     }
-     
-   });
- }
+    console.log(data);
+
+    for (i = 0; i < data.length; i++) {
+
+      var li = document.createElement("li");
+      var latitude = parseFloat(data[i].latitude);
+      var longitude = parseFloat(data[i].longitude);
+      var crimeList = parseFloat(data.length);
+      var crimeDateAndType = data[i].occ_date_time + " " + data[i].crime_type;
+
+      li.textContent = crimeDateAndType;
+      list.appendChild(li);
+
+
+      //console.log("This is the both " + crimeDateAndType);
+
+
+    }
+
+  });
+}
 
 function populateMap(data) {
   var ajaxTime = new Date().getTime();
@@ -99,7 +97,7 @@ function populateMap(data) {
         });
 
         // Add a click listener to the marker to open the InfoWindow
-        marker.addListener('click', function() {
+        marker.addListener('click', function () {
           infoWindow.open(map, marker);
         });
       }
@@ -113,7 +111,7 @@ function populateMap(data) {
 var zilkerPark = ["Zilker Park", "30.276187", "-97.776181", "30.260135", "-97.771194"];
 var ladyBirdLake = ["Lady Bird Lake", "30.294497", "-97.788501", "30.242677", "-97.717318"];
 var bartonCreekGreenbelt = ["Barton Creek Greenbelt", "30.285798", "-97.827646", "30.234250", "-97.784231"];
-var mcKinneyFallsStatePark = ["McKinney Falls State Park", "30.202370", "-97.725063", "30.167640",  "-97.722854"];
+var mcKinneyFallsStatePark = ["McKinney Falls State Park", "30.202370", "-97.725063", "30.167640", "-97.722854"];
 var emmaLongMetroPark = ["Emma Long Metropolitan Park", "30.356452", "-97.848282", "30.323719", "-97.826107"];
 var walCreekMetroPark = ["Walnut Creek Metropolitan Park", "30.388371", "-97.677382", "30.410843", "-97.709775"];
 var peasePark = ["Pease Park", "30.289109", "-97.756060", "30.280137", "-97.750709"];
@@ -125,63 +123,63 @@ var muellerLakePark = ["Mueller Lake Park", "30.298086", "-97.709049", "30.29439
 var bullCreekGreenbelt = ["Bull Creek Greenbelt", "30.385492", "-97.784090", "30.365006", "-97.764350"]
 
 // Array of all parks:
-var AustinParks = [zilkerPark, ladyBirdLake, bartonCreekGreenbelt, mcKinneyFallsStatePark, emmaLongMetroPark, walCreekMetroPark, peasePark, royGuerreroPark, mayfieldPark,austinNatAndSciCent, shoalCreekGreenbelt, muellerLakePark, bullCreekGreenbelt];
+var AustinParks = [zilkerPark, ladyBirdLake, bartonCreekGreenbelt, mcKinneyFallsStatePark, emmaLongMetroPark, walCreekMetroPark, peasePark, royGuerreroPark, mayfieldPark, austinNatAndSciCent, shoalCreekGreenbelt, muellerLakePark, bullCreekGreenbelt];
 
 //For this function, we used chatGPT to help us make it
 function makeParkList() {
   var accordion = document.getElementById("accordion-collapse");
 
-  for(let i = 0; i < AustinParks.length; i++) {
-      let parkNumber = i + 4;
-      
-      let heading = document.createElement("h2");
-      heading.setAttribute("id", "accordion-collapse-heading-" + parkNumber);
+  for (let i = 0; i < AustinParks.length; i++) {
+    let parkNumber = i + 4;
 
-      let button = document.createElement("button");
-      button.setAttribute("type", "button");
-      button.setAttribute("id", parkNumber);
-      button.setAttribute("class", "flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 accordion-button");
-      button.setAttribute("data-accordion-target", "#accordion-collapse-body-" + parkNumber);
-      button.setAttribute("aria-expanded", "false");
-      button.setAttribute("aria-controls", "accordion-collapse-body-" + parkNumber);
+    let heading = document.createElement("h2");
+    heading.setAttribute("id", "accordion-collapse-heading-" + parkNumber);
 
-      let span = document.createElement("span");
-      span.textContent = AustinParks[i][0];
-      button.appendChild(span);
-      
-      let svg = document.createElement("svg");
-      svg.setAttribute("data-accordion-icon", "");
-      svg.setAttribute("class", "w-3 h-3 rotate-180 shrink-0");
-      svg.setAttribute("aria-hidden", "true");
-      svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
-      svg.setAttribute("fill", "none");
-      svg.setAttribute("viewBox", "0 0 10 6");
-      
-      let path = document.createElement("path");
-      path.setAttribute("stroke", "currentColor");
-      path.setAttribute("stroke-linecap", "round");
-      path.setAttribute("stroke-linejoin", "round");
-      path.setAttribute("stroke-width", "2");
-      path.setAttribute("d", "M9 5 5 1 1 5");
-      svg.appendChild(path);
-      
-      button.appendChild(svg);
-      
-      let div = document.createElement("div");
-      div.setAttribute("id", "accordion-collapse-body-" + parkNumber);
-      div.setAttribute("class", "hidden");
-      div.setAttribute("aria-labelledby", "accordion-collapse-heading-" + parkNumber);
+    let button = document.createElement("button");
+    button.setAttribute("type", "button");
+    button.setAttribute("id", parkNumber);
+    button.setAttribute("class", "flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 accordion-button");
+    button.setAttribute("data-accordion-target", "#accordion-collapse-body-" + parkNumber);
+    button.setAttribute("aria-expanded", "false");
+    button.setAttribute("aria-controls", "accordion-collapse-body-" + parkNumber);
 
-      let content = document.createElement("div");
-      content.setAttribute("class", "p-5 border border-b-0 border-gray-200 dark:border-gray-700");
+    let span = document.createElement("span");
+    span.textContent = AustinParks[i][0];
+    button.appendChild(span);
 
-      // Add content here as necessary
+    let svg = document.createElement("svg");
+    svg.setAttribute("data-accordion-icon", "");
+    svg.setAttribute("class", "w-3 h-3 rotate-180 shrink-0");
+    svg.setAttribute("aria-hidden", "true");
+    svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+    svg.setAttribute("fill", "none");
+    svg.setAttribute("viewBox", "0 0 10 6");
 
-      div.appendChild(content);
+    let path = document.createElement("path");
+    path.setAttribute("stroke", "currentColor");
+    path.setAttribute("stroke-linecap", "round");
+    path.setAttribute("stroke-linejoin", "round");
+    path.setAttribute("stroke-width", "2");
+    path.setAttribute("d", "M9 5 5 1 1 5");
+    svg.appendChild(path);
 
-      heading.appendChild(button);
-      accordion.appendChild(heading);
-      accordion.appendChild(div);
+    button.appendChild(svg);
+
+    let div = document.createElement("div");
+    div.setAttribute("id", "accordion-collapse-body-" + parkNumber);
+    div.setAttribute("class", "hidden");
+    div.setAttribute("aria-labelledby", "accordion-collapse-heading-" + parkNumber);
+
+    let content = document.createElement("div");
+    content.setAttribute("class", "p-5 border border-b-0 border-gray-200 dark:border-gray-700");
+
+    // Add content here as necessary
+
+    div.appendChild(content);
+
+    heading.appendChild(button);
+    accordion.appendChild(heading);
+    accordion.appendChild(div);
   }
 }
 
