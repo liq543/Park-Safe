@@ -15,7 +15,7 @@ body {
 .backnavcolor, #default-search {
     background-color: #2d2a32;
 }
-.containerMap, .searchDropDn {
+.searchDropDn {
     margin: 10px auto;
     padding: 5px;
     width: 75%;
@@ -28,15 +28,13 @@ body {
 header img {
     max-width: 100%;
 }
-
-.carousel {
-    max-width: 100%;
-    margin: 10px auto;
-
+.gglImgsPic {
+    width: 10%;
+    margin: 0 auto;
 }
 
 @media screen and (max-width: 639px) {
-    .container {
+    header, .searchDropDn {
         margin: 5px auto;
         width: 75%;
     }
