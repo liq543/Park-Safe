@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Is My Park Safe?</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <link rel="stylesheet" href="assets/css/styles.css" .css>
     <link rel="stylesheet" href="./src/input.css">
 </head>
@@ -64,7 +64,9 @@
 
     <!-- Basic structure, adding basic tailwind classes to elements -->
     <div class="container mx-auto text-3xl font-bold">
+        <!-- Row/Column Info -->
         <div class="grid grid-cols-3 gap-4 grid-flow-row mpbg">
+            <!-- Map/Search Bar Grid  -->
             <div class="bg-emerald-500 rounded p-5 col-span-2 shadow-inner-md">
                 <div class="containerMap">
                     <h2 class="text-center"><strong>Search Your Area!</strong></h2>
@@ -91,6 +93,7 @@
                     </form>
                 </div>
             </div>
+            <!-- Picture Grid  -->
             <div class="bg-emerald-500 rounded p-5 col-span-1">
                 <figure class="carousel visible">
                     <img class="rounded-lg" src="./assets/images/survaillence.png" alt="surveillance camera">
@@ -98,6 +101,7 @@
                     </figcaption>
                 </figure>
             </div>
+            <!-- Accordian Grid  -->
             <div class="bg-emerald-500 rounded p-5 col-span-2">
                 <div class="searchDropDn">
                     <div id="accordion-collapse" data-accordion="collapse">
@@ -200,10 +204,12 @@
                     </div>
                 </div>
             </div>
+            <!-- Filler Grid 1 -->
             <div class="bg-emerald-500 rounded row-span-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Autem deleniti illo ipsa saepe quaerat doloribus voluptatem nam harum officia eligendi necessitatibus
                 animi vel mollitia, exercitationem magni recusandae accusantium quidem quibusdam.
             </div>
+            <!-- Filler Grid 2 -->
             <div class="bg-emerald-500 rounded col-span-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
             </div>
         </div>
