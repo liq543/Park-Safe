@@ -20,7 +20,7 @@ var muellerLakePark = ["Mueller Lake Park", "30.298086", "-97.709049", "30.29439
 var bullCreekGreenbelt = ["Bull Creek Greenbelt", "30.385492", "-97.784090", "30.365006", "-97.764350"]
 
 // Array of all parks:
-var AustinParks = [zilkerPark, ladyBirdLake, bartonCreekGreenbelt, mcKinneyFallsStatePark, emmaLongMetroPark, walCreekMetroPark, peasePark, royGuerreroPark, mayfieldPark,austinNatAndSciCent, shoalCreekGreenbelt, muellerLakePark, bullCreekGreenbelt];
+var austinParks = [zilkerPark, ladyBirdLake, bartonCreekGreenbelt, mcKinneyFallsStatePark, emmaLongMetroPark, walCreekMetroPark, peasePark, royGuerreroPark, mayfieldPark,austinNatAndSciCent, shoalCreekGreenbelt, muellerLakePark, bullCreekGreenbelt];
 
 
 function initMap() {
@@ -41,9 +41,9 @@ function pullCrimes(latMin, latMax, lngMin, lngMax, startDate, endDate, list) {
     }
   }).done(function(data) {
 
-    console.log("This is how many crimes in Zilker Park " + data.length);
+    console.log("This is how many crimes " + data.length);
      console.log(data);
-     console.log("This is Austin Parks Length " + AustinParks.length);
+     console.log("This is Austin Parks Length " + austinParks.length);
 
      for(i =0; i< data.length; i++){
 
@@ -63,7 +63,7 @@ function pullCrimes(latMin, latMax, lngMin, lngMax, startDate, endDate, list) {
      }
 
 
-    //  for(i = 0; i < AustinParks.length; i++)
+    //  for(i = 0; i < austinParks.length; i++)
     //  {
       
     //   var parkIDList;
@@ -135,7 +135,7 @@ function populateMap(data) {
 function makeParkList() {
   var accordion = document.getElementById("accordion-collapse");
 
-  for(let i = 0; i < AustinParks.length; i++) {
+  for(let i = 0; i < austinParks.length; i++) {
       let parkNumber = i + 4;
       
       let heading = document.createElement("h2");
@@ -150,7 +150,7 @@ function makeParkList() {
       button.setAttribute("aria-controls", "accordion-collapse-body-" + parkNumber);
 
       let span = document.createElement("span");
-      span.textContent = AustinParks[i][0];
+      span.textContent = austinParks[i][0];
       button.appendChild(span);
       
       let svg = document.createElement("svg");
@@ -220,4 +220,25 @@ function attachButtonListeners() {
 
 // Call the functions.
 makeParkList();
-pullCrimes('30.259585', '30.277721', '-97.780467', '-97.763959', '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-4").done(data => populateMap(data));
+// pullCrimes('30.259585', '30.277721', '-97.780467', '-97.763959', '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-4").done(data => populateMap(data));
+
+// console.log(austinParks[0][3] + austinParks[0][1] + austinParks[0][4] +austinParks[0][3]);
+
+//Zilker Park
+pullCrimes(austinParks[0][3], austinParks[0][1], austinParks[0][2], austinParks[0][4], '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-4").done(data => populateMap(data));
+
+//Ladybird Lake
+// pullCrimes(austinParks[1][3], austinParks[1][1], austinParks[1][2], austinParks[1][4], '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-5").done(data => populateMap(data));
+
+//Barton Creek Greenbelt
+pullCrimes(austinParks[2][3], austinParks[2][1], austinParks[2][2], austinParks[2][4], '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-6").done(data => populateMap(data));
+
+//McKinney Falls State Park 
+pullCrimes(austinParks[3][3], austinParks[3][1], austinParks[3][2], austinParks[3][4], '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-7").done(data => populateMap(data));
+
+//Emma Long Metro Park
+pullCrimes(austinParks[4][3], austinParks[4][1], austinParks[4][2], austinParks[4][4], '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-8").done(data => populateMap(data));
+
+// pullCrimes("30.242677", "30.294497", "-97.788501", "-97.717318", '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-5").done(data => populateMap(data));
+
+
