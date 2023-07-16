@@ -15,59 +15,49 @@
 <body>
     <header>
         <nav class="backnavcolor">
-            <div class="mx-0 mb-1 max-w-7xl px-2 sm:px-6 lg:px-8">
+            <div class="mx-0 mb-1 max-w-7xl px-2 xs:px-6 md:px-8">
                 <div class="relative mb-px flex h-16 items-center justify-between">
                     <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                        <!-- Mobile menu button-->
-                        <button type="button"
-                            class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-                            aria-controls="mobile-menu" aria-expanded="false">
-                            <span class="sr-only">Open main menu</span>
-                        </button>
                     </div>
-                    <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+                    <div class="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
                         <div class="flex flex-shrink-0 items-center">
                             <img class="h-10 w-10" src="./assets/images/survaillence.png"
                                 alt="surveillance camera logo">
                         </div>
-                        <div class="hidden sm:ml-6 sm:block">
+                        <div class="hidden xs:ml-6 md:block">
                             <div class="flex space-x-4">
-                                <a href="#"
+                                <a href="./index.html"
                                     class="text-gray-300 hover:bg-gray-700  rounded-md px-3 py-2 text-sm font-medium"
                                     aria-current="page">Home</a>
-                                <a href="#"
+                                <a href="https://www.austintexas.gov"
                                     class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Austin</a>
-                                <a href="#"
-                                    class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Mission</a>
-                                <a href="#"
-                                    class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">[TBD]</a>
+                                <a href="./about-park.html"
+                                    class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">About</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- Mobile menu, show/hide based on menu state. -->
-            <div class="sm:hidden" id="mobile-menu">
+            <div class="md:hidden" id="mobile-menu">
                 <div class="space-y-1 px-2 pb-3 pt-2">
-                    <a href="#"
+                    <a href="./index.html"
                         class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium text-center">Home</a>
-                    <a href="#"
+                    <a href="https://www.austintexas.gov"
                         class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium text-center">Austin</a>
-                    <a href="#"
-                        class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium text-center">Mission</a>
-                    <a href="#"
-                        class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium text-center">[TBD]</a>
+                    <a href="./about-park.html"
+                        class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium text-center">About</a>
                 </div>
             </div>
         </nav>
     </header>
 
     <!-- Basic structure, adding basic tailwind classes to elements -->
-    <div class="container mx-auto text-3xl font-bold">
+    <div class="container mx-auto text-3xl font-bold square">
         <!-- Row/Column Info -->
-        <div class="grid grid-cols-3 gap-4 grid-flow-row mpbg">
+        <div class="grid xs:grid-cols-2 xs:gap-4 md:grid-cols-3 md:gap-4 grid-flow-row mpbg">
             <!-- Map/Search Bar Grid  -->
-            <div class="bg-emerald-500 rounded-sm p-5 col-span-2">
+            <div class="rounded-sm p-5 col-span-2">
                 <div class="containerMap">
                     <h2 class="text-center"><strong>Search Your Area!</strong></h2>
                     <section class="bg-gray-200 rounded-sm relative h-72 flex items-center justify-center">
@@ -94,7 +84,7 @@
                 </div>
             </div>
             <!-- Picture Grid  -->
-            <div class="bg-emerald-500 rounded-sm p-5 col-span-1">
+            <div class="p-4 rounded-sm xxs:col-span-2 xs:col-span-2 md:col-span-1">
                 <figure class="carousel visible">
                     <img class="rounded-lg" src="./assets/images/survaillence.png" alt="surveillance camera">
                     <figcaption class="mt-2 text-sm text-center text-gray-500 dark:text-gray-400">Surveillance Camera
@@ -102,12 +92,12 @@
                 </figure>
             </div>
             <!-- Accordian Grid  -->
-            <div class="bg-emerald-500 rounded-sm p-5 col-span-2">
+            <div class="rounded-sm p-5 col-span-2">
                 <div class="searchDropDn">
                     <div id="accordion-collapse" data-accordion="collapse">
                         <h2 id="accordion-collapse-heading-1">
                             <button type="button"
-                                class="flex items-center justify-between w-full p-5 font-medium text-left bg-white border border-b-2 border-emerald-50 rounded-t-md focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-500"
+                                class="hidden flex items-center justify-between w-full p-5 font-medium text-left bg-white border border-b-2 border-emerald-50 rounded-t-md focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-500"
                                 data-accordion-target="#accordion-collapse-body-1" aria-expanded="true"
                                 aria-controls="accordion-collapse-body-1">
                                 <span>What is Flowbite?</span>
@@ -135,7 +125,7 @@
                         </div>
                         <h2 id="accordion-collapse-heading-2">
                             <button type="button"
-                                class="flex items-center justify-between w-full p-5 font-medium text-left bg-white border border-b-2 border-emerald-50 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-500"
+                                class="hidden flex items-center justify-between w-full p-5 font-medium text-left bg-white border border-b-2 border-emerald-50 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-500"
                                 data-accordion-target="#accordion-collapse-body-2" aria-expanded="false"
                                 aria-controls="accordion-collapse-body-2">
                                 <span>Is there a Figma file available?</span>
@@ -163,7 +153,7 @@
                         </div>
                         <h2 id="accordion-collapse-heading-3">
                             <button type="button"
-                                class="flex items-center justify-between w-full p-5 font-medium text-left bg-white border border-b-2 border-emerald-50 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-500"
+                                class="hidden flex items-center justify-between w-full p-5 font-medium text-left bg-white border border-b-2 border-emerald-50 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-500"
                                 data-accordion-target="#accordion-collapse-body-3" aria-expanded="false"
                                 aria-controls="accordion-collapse-body-3">
                                 <span>What are the differences between Flowbite and Tailwind UI?</span>
@@ -205,10 +195,10 @@
                 </div>
             </div>
             <!-- Filler Grid 1 -->
-            <div class="bg-emerald-500 rounded-sm row-span-2">[Insert Text]
+            <div class="rounded-sm row-span-1 text-center">[Insert Text]
             </div>
             <!-- Filler Grid 2 -->
-            <div class="bg-emerald-500 rounded-sm col-span-2">[Insert Text]
+            <div class="rounded-sm col-span-2 text-center">[Insert Text]
             </div>
         </div>
     </div>
@@ -217,26 +207,12 @@
         <div class="w-full max-w-screen-xl mx-auto mt-1 p-4 md:py-8">
             <div class="sm:flex sm:items-center sm:justify-between">
                 <a href="https://flowbite.com/" class="flex items-center mb-4 sm:mb-0">
-                    <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 mr-3" alt="Flowbite Logo" />
-                    <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
+                    <img src="./assets/images/survaillence.png" class="h-8 mr-3" alt="Flowbite Logo" />
+                    <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Is My Park Safe?</span>
                 </a>
-                <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
-                    <li>
-                        <a href="#" class="mr-4 hover:underline md:mr-6 ">About</a>
-                    </li>
-                    <li>
-                        <a href="#" class="mr-4 hover:underline md:mr-6">Privacy Policy</a>
-                    </li>
-                    <li>
-                        <a href="#" class="mr-4 hover:underline md:mr-6 ">Licensing</a>
-                    </li>
-                    <li>
-                        <a href="#" class="hover:underline">Contact</a>
-                    </li>
-                </ul>
             </div>
             <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-            <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.</span>
+            <span class="block text-center text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.</span>
         </div>
     </footer>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFg0zj2Tvxi3_bGjMrizncDaitg-XmNVM&callback=initMap"
