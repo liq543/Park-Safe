@@ -43,6 +43,7 @@ var austinParks = [zilkerPark, ladyBirdLake, bartonCreekGreenbelt, mcKinneyFalls
 
 
 
+//Loads our initial map location to show Austin.
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: 30.2672, lng: -97.7431 }, // Austin, Texas
@@ -51,7 +52,7 @@ function initMap() {
 }
 
 
-
+//Pull the crime data through the API we're using. With this function, we're going to insert parameters that we get from our array that we've made with the Austin Parks. Those parameters will be the filters for our $where. With those filters, we receive a list, and then we go ahead and make an element "li" for each entry on this list.
 function pullCrimes(latMin, latMax, lngMin, lngMax, startDate, endDate, list) {
   return $.ajax({
     url: "https://data.austintexas.gov/resource/fdj4-gpfu.json",
@@ -89,31 +90,6 @@ function pullCrimes(latMin, latMax, lngMin, lngMax, startDate, endDate, list) {
  
        //console.log("This is the both " + crimeDateAndType);
      }
-
-
-
-    //  for(i = 0; i < austinParks.length; i++)
-    //  {
-
-    //   var parkIDList;
-    //   var parkID = 1;
-    //   parkIDList = "list-" + parkID;
-    //   for(i =0; i< data.length; i++){
-    //     console.log(parkIDList);
-
-    //     var parkCrimeList = document.getElementById("list-1");
-
-    //      var li = document.createElement("li");
-    //      var latitude = parseFloat(data[i].latitude);
-    //      var longitude = parseFloat(data[i].longitude);
-    //      var crimeList = parseFloat(data.length);
-    //      var crimeDateAndType =  data[i].occ_date_time + " " + data[i].crime_type;
-
-    //      li.textContent = crimeDateAndType;
-    //      parkCrimeList.appendChild(li);
-    //    }
-    //  }
-
 
   });
 }
@@ -156,9 +132,11 @@ function populateMap(data) {
   }
 }
 
-//For this function, we used chatGPT to help us make it
+// This function makes the park list based on the array austinParks, and should take the whole array list, and fill out a list underneath the map on our page with the park names that function as buttons. We were able to list the buttons and make them functional by ourselves, but we did use chatGPT to help us with the formatting part of our button to make the button look like the Tailwind API we used for formatting.
+
 function makeParkList() {
-  var accordion = document.getElementById("accordion-collapse");
+  
+  var accordion = document.getElementById("accordion-collapse"); 
 
   for (let i = 0; i < austinParks.length; i++) {
     let parkNumber = i + 4;
@@ -166,9 +144,6 @@ function makeParkList() {
     let heading = document.createElement("h2");
     heading.setAttribute("id", "accordion-collapse-heading-" + parkNumber);
 
-    heading.addEventListener("click", function () {
-      button.click();
-    });
 
     let button = document.createElement("button");
     button.setAttribute("type", "button");
@@ -223,8 +198,6 @@ function makeParkList() {
     accordion.appendChild(div);
   }
   attachButtonListeners();
- 
-
 }
 
 //Used accordionButton function which took existing buttons and made them clickable, and made this function to make the new buttons made clickable.
