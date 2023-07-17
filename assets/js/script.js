@@ -6,7 +6,7 @@ var parkList = document.getElementById("accordion-collapse");
 
 // Each park array contains: park name[0], northwest corner latitude[1], northwest corner longitude[2], southeast corner latitude[3], southeast corner longitude [4]
 var zilkerPark = ["Zilker Park", "30.276187", "-97.776181", "30.260135", "-97.771194"];
-var ladyBirdLake = ["Lady Bird Lake", "30.294497", "-97.788501", "30.242677", "-97.717318"];
+var rosewoodNeighPark = ["Rosewood Neighborhood Park", "30.274653", ",-97.716333", "30.271005", "-97.709234"];
 var bartonCreekGreenbelt = ["Barton Creek Greenbelt", "30.285798", "-97.827646", "30.234250", "-97.784231"];
 var mcKinneyFallsStatePark = ["McKinney Falls State Park", "30.202370", "-97.725063", "30.167640", "-97.722854"];
 var emmaLongMetroPark = ["Emma Long Metropolitan Park", "30.356452", "-97.848282", "30.323719", "-97.826107"];
@@ -38,9 +38,13 @@ var reillySchoolPark = ["Reilly School Park", "30.328636", "-97.721011", "30.325
 
 // Array of all parks:
 
+<<<<<<< HEAD
 var austinParks = [zilkerPark, ladyBirdLake, bartonCreekGreenbelt, mcKinneyFallsStatePark, emmaLongMetroPark, walCreekMetroPark, peasePark, royGuerreroPark, mayfieldPark, austinNatAndSciCent, shoalCreekGreenbelt, muellerLakePark, bullCreekGreenbelt, garrisonPark, lilStacyPark, southwestGreenway, balconesDistPark, millsPondRecArea, northwestDistPark, eastwoodsPark, greatHillsNeighPark, gracywoodsPark, austinMemParkCem, waterlooPark, westAustinNeighPark, southAusNeighPark, nicholasDawsonNeighPark, gillisNeighPark, adamsHemphillNeighPark, reillySchoolPark];
 var austinParks = [zilkerPark, ladyBirdLake, bartonCreekGreenbelt, mcKinneyFallsStatePark, emmaLongMetroPark, walCreekMetroPark, peasePark, royGuerreroPark, mayfieldPark, austinNatAndSciCent, shoalCreekGreenbelt, muellerLakePark, bullCreekGreenbelt, garrisonPark, lilStacyPark, southwestGreenway, balconesDistPark, millsPondRecArea, northwestDistPark, eastwoodsPark, greatHillsNeighPark, gracywoodsPark, austinMemParkCem, waterlooPark, westAustinNeighPark, southAusNeighPark, nicholasDawsonNeighPark, gillisNeighPark, adamsHemphillNeighPark, reillySchoolPark];
 
+=======
+var austinParks = [zilkerPark, rosewoodNeighPark, bartonCreekGreenbelt, mcKinneyFallsStatePark, emmaLongMetroPark, walCreekMetroPark, peasePark, royGuerreroPark, mayfieldPark, austinNatAndSciCent, shoalCreekGreenbelt, muellerLakePark, bullCreekGreenbelt, garrisonPark, lilStacyPark, southwestGreenway, balconesDistPark, millsPondRecArea, northwestDistPark, eastwoodsPark, greatHillsNeighPark, gracywoodsPark, austinMemParkCem, waterlooPark, westAustinNeighPark, southAusNeighPark, nicholasDawsonNeighPark, gillisNeighPark, adamsHemphillNeighPark, reillySchoolPark];
+>>>>>>> 2684baa2a66c1995cb5b76676d988800b2f5d65c
 
 
 //Loads our initial map location to show Austin.
@@ -313,8 +317,8 @@ fetchParkImage("Zilker Park", "list-4");
 //Zilker Park
 pullCrimes(austinParks[0][3], austinParks[0][1], austinParks[0][2], austinParks[0][4], '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-4").done(data => populateMap(data));
 
-//Ladybird Lake
-// pullCrimes(austinParks[1][3], austinParks[1][1], austinParks[1][2], austinParks[1][4], '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-5").done(data => populateMap(data));
+//Rosewood Neighborhood Park
+pullCrimes(austinParks[1][3], austinParks[1][1], austinParks[1][2], austinParks[1][4], '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-5").done(data => populateMap(data));
 
 //Barton Creek Greenbelt
 pullCrimes(austinParks[2][3], austinParks[2][1], austinParks[2][2], austinParks[2][4], '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-6").done(data => populateMap(data));
