@@ -47,6 +47,8 @@ function initMap() {
   });
 }
 
+
+
 function pullCrimes(latMin, latMax, lngMin, lngMax, startDate, endDate, list) {
   return $.ajax({
     url: "https://data.austintexas.gov/resource/fdj4-gpfu.json",
@@ -219,22 +221,51 @@ function attachButtonListeners() {
 
   accordionButtons.forEach(function(button) {
     button.addEventListener("click", function(event) {
-      console.log("button clicked");
-      var buttonId = "accordion-collapse-body-" + event.target.id;
-      console.log("This is the button ID: " + buttonId);
-      var element = document.getElementById(buttonId);
+      console.log("button clicked...");
 
-      var visibility = element.classList.value;
-
-      console.log(visibility);
-
-      if (visibility === "visible") {
-        element.classList.value = "hidden";
-      } else if (visibility === "hidden") {
-        element.classList.value = "visible";
+      // Original functionality
+      let accordionBody = document.querySelector(button.dataset.accordionTarget);
+      if (accordionBody.classList.contains("hidden")) {
+        accordionBody.classList.remove("hidden");
+        button.setAttribute("aria-expanded", "true");
+      } else {
+        accordionBody.classList.add("hidden");
+        button.setAttribute("aria-expanded", "false");
       }
+
+      // New functionality: Fetch park images
+      var parkIndex = parseInt(button.id) - 4;
+      var parkName = austinParks[parkIndex][0];
+      fetchParkImage(parkName, "list-" + button.id);
     });
   });
+}
+
+function fetchParkImage(parkName, listId) {
+  // Constructing the Unsplash API URL
+  var url = `https://api.unsplash.com/search/photos?query=${parkName}&client_id=bOrL9Sw6VZrA5KdtYZYVv4NObUrYUGJvbo2m6S5eeb8&per_page=1`;
+
+  fetch(url)
+      .then(response => response.json())
+      .then(data => {
+          if (data.results.length > 0) {
+              var imageUrl = data.results[0].urls.small;
+              appendImageToList(listId, imageUrl);
+          }
+      })
+      .catch(error => console.log('Error:', error));
+}
+
+function appendImageToList(listId, imageUrl) {
+  // Getting the target list
+  var targetList = document.getElementById(listId);
+
+  // Creating a new image element
+  var newImage = document.createElement("img");
+  newImage.src = imageUrl;
+  
+  // Appending the image to the list
+  targetList.appendChild(newImage);
 }
 
 // Call the functions.
