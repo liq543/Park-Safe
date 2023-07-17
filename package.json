@@ -19,5 +19,8 @@
   "homepage": "https://github.com/liq543/Park-Safe#readme",
   "devDependencies": {
     "tailwindcss": "^3.3.2"
+  },
+  "dependencies": {
+    "fuse.js": "^6.6.2"
   }
 }
