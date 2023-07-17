@@ -22,7 +22,7 @@ var garrisonPark = ["Garrison District Park", "30.213989", "-97.802447", "30.208
 var lilStacyPark = ["Little Stacy Park", "30.248717", "-97.744906", "30.245923", "-97.743049"];
 var southwestGreenway = ["Southwest Greenway", "30.294160", "-97.707727", "30.288103", "-97.694397"];
 var balconesDistPark = ["Balcones District Park", "30.415541", "-97.721563", "30.410098", "-97.711759"];
-var MillsPondRecArea = ["Mills Pond Recreation Area", "30.456040", "-97.681981", "30.448297", "-97.678249"];
+var millsPondRecArea = ["Mills Pond Recreation Area", "30.456040", "-97.681981", "30.448297", "-97.678249"];
 var northwestDistPark = ["Northwest District Park", "30.350764", "-97.744671", "30.345539", "-97.739800"];
 var eastwoodsPark = ["Eastwoods Park", "30.292031", "-97.733301", "30.289317", "-97.730634"];
 var greatHillsNeighPark = ["Great Hills Neighborhood Park", "30.419470", "-97.763739", "30.401857", "-97.750022"];
@@ -37,7 +37,7 @@ var adamsHemphillNeighPark = ["Adams-Hemphill Neighborhood Park", "30.299335", "
 var reillySchoolPark = ["Reilly School Park", "30.328636", "-97.721011", "30.325990", "-97.718484"];
 
 // Array of all parks:
-var austinParks = [zilkerPark, ladyBirdLake, bartonCreekGreenbelt, mcKinneyFallsStatePark, emmaLongMetroPark, walCreekMetroPark, peasePark, royGuerreroPark, mayfieldPark,austinNatAndSciCent, shoalCreekGreenbelt, muellerLakePark, bullCreekGreenbelt, garrisonPark, lilStacyPark, southwestGreenway, balconesDistPark, MillsPondRecArea, northwestDistPark, eastwoodsPark, greatHillsNeighPark, gracywoodsPark, austinMemParkCem, waterlooPark, westAustinNeighPark, southAusNeighPark, nicholasDawsonNeighPark, gillisNeighPark, adamsHemphillNeighPark, reillySchoolPark];
+var austinParks = [zilkerPark, ladyBirdLake, bartonCreekGreenbelt, mcKinneyFallsStatePark, emmaLongMetroPark, walCreekMetroPark, peasePark, royGuerreroPark, mayfieldPark,austinNatAndSciCent, shoalCreekGreenbelt, muellerLakePark, bullCreekGreenbelt, garrisonPark, lilStacyPark, southwestGreenway, balconesDistPark, millsPondRecArea, northwestDistPark, eastwoodsPark, greatHillsNeighPark, gracywoodsPark, austinMemParkCem, waterlooPark, westAustinNeighPark, southAusNeighPark, nicholasDawsonNeighPark, gillisNeighPark, adamsHemphillNeighPark, reillySchoolPark];
 
 
 function initMap() {
@@ -70,7 +70,13 @@ function pullCrimes(latMin, latMax, lngMin, lngMax, startDate, endDate, list) {
        var latitude = parseFloat(data[i].latitude);
        var longitude = parseFloat(data[i].longitude);
        var crimeList = parseFloat(data.length);
-       var crimeDateAndType =  data[i].occ_date_time + " " + data[i].crime_type;
+       
+      //  This set of variables changes the date and time of the crimes to be legible using dayJS
+       var timeDayJSUnderstands = data[i].occ_date_time + "Z"
+       var betterTime = dayjs(timeDayJSUnderstands);
+       var bestTime = betterTime.format('MMM D, YYYY, h:mm A');
+       
+       var crimeDateAndType =  bestTime + "  |  " + data[i].crime_type;
  
        li.textContent = crimeDateAndType;
        parkCrimeList.appendChild(li);
