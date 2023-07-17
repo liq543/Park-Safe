@@ -8,7 +8,7 @@ var parkList = document.getElementById("accordion-collapse");
 var zilkerPark = ["Zilker Park", "30.276187", "-97.776181", "30.260135", "-97.771194"];
 var ladyBirdLake = ["Lady Bird Lake", "30.294497", "-97.788501", "30.242677", "-97.717318"];
 var bartonCreekGreenbelt = ["Barton Creek Greenbelt", "30.285798", "-97.827646", "30.234250", "-97.784231"];
-var mcKinneyFallsStatePark = ["McKinney Falls State Park", "30.202370", "-97.725063", "30.167640",  "-97.722854"];
+var mcKinneyFallsStatePark = ["McKinney Falls State Park", "30.202370", "-97.725063", "30.167640", "-97.722854"];
 var emmaLongMetroPark = ["Emma Long Metropolitan Park", "30.356452", "-97.848282", "30.323719", "-97.826107"];
 var walCreekMetroPark = ["Walnut Creek Metropolitan Park", "30.388371", "-97.677382", "30.410843", "-97.709775"];
 var peasePark = ["Pease Park", "30.289109", "-97.756060", "30.280137", "-97.750709"];
@@ -36,35 +36,8 @@ var gillisNeighPark = ["Gillis Neighborhood Park", "30.241941", "-97.760869", "3
 var adamsHemphillNeighPark = ["Adams-Hemphill Neighborhood Park", "30.299335", "-97.742043", "30.293331", "-97.737493"];
 var reillySchoolPark = ["Reilly School Park", "30.328636", "-97.721011", "30.325990", "-97.718484"];
 
-<<<<<<< HEAD
-accordionButton.forEach(function (button) {
-  button.addEventListener("click", function (event) {
-    console.log("button clicked");
-    var buttonId = "accordion-collapse-body-" + event.target.id;
-    console.log("This is the button ID:" + buttonId);
-    var element = document.getElementById(buttonId);
-
-    var visibility = element.classList.value;
-
-    console.log(visibility);
-
-    if (visibility == "visible") {
-      element.classList.value = "hidden";
-
-    }
-    else if (visibility == "hidden") {
-      element.classList.value = "visible";
-    }
-  })
-})
-=======
 // Array of all parks:
-<<<<<<< HEAD
-var austinParks = [zilkerPark, ladyBirdLake, bartonCreekGreenbelt, mcKinneyFallsStatePark, emmaLongMetroPark, walCreekMetroPark, peasePark, royGuerreroPark, mayfieldPark,austinNatAndSciCent, shoalCreekGreenbelt, muellerLakePark, bullCreekGreenbelt];
->>>>>>> f6930ff77a16cc2fb41b1b3b4f86046c179ae5c6
-=======
-var austinParks = [zilkerPark, ladyBirdLake, bartonCreekGreenbelt, mcKinneyFallsStatePark, emmaLongMetroPark, walCreekMetroPark, peasePark, royGuerreroPark, mayfieldPark,austinNatAndSciCent, shoalCreekGreenbelt, muellerLakePark, bullCreekGreenbelt, garrisonPark, lilStacyPark, southwestGreenway, balconesDistPark, MillsPondRecArea, northwestDistPark, eastwoodsPark, greatHillsNeighPark, gracywoodsPark, austinMemParkCem, waterlooPark, westAustinNeighPark, southAusNeighPark, nicholasDawsonNeighPark, gillisNeighPark, adamsHemphillNeighPark, reillySchoolPark];
->>>>>>> 2d9aaf97f2cca5e552ccc9b92f523127b4b90ff8
+var austinParks = [zilkerPark, ladyBirdLake, bartonCreekGreenbelt, mcKinneyFallsStatePark, emmaLongMetroPark, walCreekMetroPark, peasePark, royGuerreroPark, mayfieldPark, austinNatAndSciCent, shoalCreekGreenbelt, muellerLakePark, bullCreekGreenbelt, garrisonPark, lilStacyPark, southwestGreenway, balconesDistPark, MillsPondRecArea, northwestDistPark, eastwoodsPark, greatHillsNeighPark, gracywoodsPark, austinMemParkCem, waterlooPark, westAustinNeighPark, southAusNeighPark, nicholasDawsonNeighPark, gillisNeighPark, adamsHemphillNeighPark, reillySchoolPark];
 
 
 function initMap() {
@@ -85,11 +58,13 @@ function pullCrimes(latMin, latMax, lngMin, lngMax, startDate, endDate, list) {
     }
   }).done(function (data) {
 
-<<<<<<< HEAD
-    console.log("This is how many crimes in Zilker Park " + data.length);
+    console.log("This is how many crimes " + data.length);
     console.log(data);
+    console.log("This is Austin Parks Length " + austinParks.length);
 
     for (i = 0; i < data.length; i++) {
+
+      var parkCrimeList = document.getElementById(list);
 
       var li = document.createElement("li");
       var latitude = parseFloat(data[i].latitude);
@@ -98,65 +73,38 @@ function pullCrimes(latMin, latMax, lngMin, lngMax, startDate, endDate, list) {
       var crimeDateAndType = data[i].occ_date_time + " " + data[i].crime_type;
 
       li.textContent = crimeDateAndType;
-      list.appendChild(li);
+      parkCrimeList.appendChild(li);
 
 
       //console.log("This is the both " + crimeDateAndType);
-
-
     }
-
-  });
-}
-=======
-    console.log("This is how many crimes " + data.length);
-     console.log(data);
-     console.log("This is Austin Parks Length " + austinParks.length);
-
-     for(i =0; i< data.length; i++){
-
-      var parkCrimeList = document.getElementById(list);
- 
-       var li = document.createElement("li");
-       var latitude = parseFloat(data[i].latitude);
-       var longitude = parseFloat(data[i].longitude);
-       var crimeList = parseFloat(data.length);
-       var crimeDateAndType =  data[i].occ_date_time + " " + data[i].crime_type;
- 
-       li.textContent = crimeDateAndType;
-       parkCrimeList.appendChild(li);
- 
- 
-       //console.log("This is the both " + crimeDateAndType);
-     }
 
 
     //  for(i = 0; i < austinParks.length; i++)
     //  {
-      
+
     //   var parkIDList;
     //   var parkID = 1;
     //   parkIDList = "list-" + parkID;
     //   for(i =0; i< data.length; i++){
     //     console.log(parkIDList);
-  
+
     //     var parkCrimeList = document.getElementById("list-1");
-   
+
     //      var li = document.createElement("li");
     //      var latitude = parseFloat(data[i].latitude);
     //      var longitude = parseFloat(data[i].longitude);
     //      var crimeList = parseFloat(data.length);
     //      var crimeDateAndType =  data[i].occ_date_time + " " + data[i].crime_type;
-   
+
     //      li.textContent = crimeDateAndType;
     //      parkCrimeList.appendChild(li);
     //    }
     //  }
- 
-     
-   });
- }
->>>>>>> f6930ff77a16cc2fb41b1b3b4f86046c179ae5c6
+
+
+  });
+}
 
 function populateMap(data) {
   var ajaxTime = new Date().getTime();
@@ -196,49 +144,16 @@ function populateMap(data) {
   }
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-// Each park array contains: park name[0], northwest corner latitude[1], northwest corner longitude[2], southeast corner latitude[3], southeast corner longitude [4]
-var zilkerPark = ["Zilker Park", "30.276187", "-97.776181", "30.260135", "-97.771194"];
-var ladyBirdLake = ["Lady Bird Lake", "30.294497", "-97.788501", "30.242677", "-97.717318"];
-var bartonCreekGreenbelt = ["Barton Creek Greenbelt", "30.285798", "-97.827646", "30.234250", "-97.784231"];
-var mcKinneyFallsStatePark = ["McKinney Falls State Park", "30.202370", "-97.725063", "30.167640", "-97.722854"];
-var emmaLongMetroPark = ["Emma Long Metropolitan Park", "30.356452", "-97.848282", "30.323719", "-97.826107"];
-var walCreekMetroPark = ["Walnut Creek Metropolitan Park", "30.388371", "-97.677382", "30.410843", "-97.709775"];
-var peasePark = ["Pease Park", "30.289109", "-97.756060", "30.280137", "-97.750709"];
-var royGuerreroPark = ["Roy G. Guerrero Colorado River Park", "30.250026", "-97.717269", "30.235685", "-97.690601"];
-var mayfieldPark = ["Mayfield Park and Nature Preserve", "30.314760", "-97.773018", "30.310082", "-97.768630"];
-var austinNatAndSciCent = ["Austin Nature and Science Center", "30.273219", "-97.775754", "30.270420", "-97.773399"];
-var shoalCreekGreenbelt = ["Shoal Creek Greenbelt", "30.307949", "-97.748550", "30.265098", "-97.750992"];
-var muellerLakePark = ["Mueller Lake Park", "30.298086", "-97.709049", "30.294390", "-97.702620"];
-var bullCreekGreenbelt = ["Bull Creek Greenbelt", "30.385492", "-97.784090", "30.365006", "-97.764350"]
-
-// Array of all parks:
-var AustinParks = [zilkerPark, ladyBirdLake, bartonCreekGreenbelt, mcKinneyFallsStatePark, emmaLongMetroPark, walCreekMetroPark, peasePark, royGuerreroPark, mayfieldPark, austinNatAndSciCent, shoalCreekGreenbelt, muellerLakePark, bullCreekGreenbelt];
-=======
->>>>>>> f6930ff77a16cc2fb41b1b3b4f86046c179ae5c6
-
-=======
->>>>>>> 2d9aaf97f2cca5e552ccc9b92f523127b4b90ff8
 //For this function, we used chatGPT to help us make it
 function makeParkList() {
   var accordion = document.getElementById("accordion-collapse");
 
-<<<<<<< HEAD
-  for (let i = 0; i < AustinParks.length; i++) {
+  for (let i = 0; i < austinParks.length; i++) {
     let parkNumber = i + 4;
-=======
-  for(let i = 0; i < austinParks.length; i++) {
-      let parkNumber = i + 4;
-      
-      let heading = document.createElement("h2");
-      heading.setAttribute("id", "accordion-collapse-heading-" + parkNumber);
->>>>>>> f6930ff77a16cc2fb41b1b3b4f86046c179ae5c6
 
     let heading = document.createElement("h2");
     heading.setAttribute("id", "accordion-collapse-heading-" + parkNumber);
 
-<<<<<<< HEAD
     let button = document.createElement("button");
     button.setAttribute("type", "button");
     button.setAttribute("id", parkNumber);
@@ -246,40 +161,11 @@ function makeParkList() {
     button.setAttribute("data-accordion-target", "#accordion-collapse-body-" + parkNumber);
     button.setAttribute("aria-expanded", "false");
     button.setAttribute("aria-controls", "accordion-collapse-body-" + parkNumber);
-=======
-      let span = document.createElement("span");
-      span.textContent = austinParks[i][0];
-      button.appendChild(span);
-      
-      let svg = document.createElement("svg");
-      svg.setAttribute("data-accordion-icon", "");
-      svg.setAttribute("class", "w-3 h-3 rotate-180 shrink-0");
-      svg.setAttribute("aria-hidden", "true");
-      svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
-      svg.setAttribute("fill", "none");
-      svg.setAttribute("viewBox", "0 0 10 6");
-      
-      let path = document.createElement("path");
-      path.setAttribute("stroke", "currentColor");
-      path.setAttribute("stroke-linecap", "round");
-      path.setAttribute("stroke-linejoin", "round");
-      path.setAttribute("stroke-width", "2");
-      path.setAttribute("d", "M9 5 5 1 1 5");
-      svg.appendChild(path);
-      
-      button.appendChild(svg);
-      
-      let div = document.createElement("div");
-      div.setAttribute("id", "accordion-collapse-body-" + parkNumber);
-      div.setAttribute("class", "hidden");
-      div.setAttribute("aria-labelledby", "accordion-collapse-heading-" + parkNumber);
->>>>>>> f6930ff77a16cc2fb41b1b3b4f86046c179ae5c6
 
     let span = document.createElement("span");
-    span.textContent = AustinParks[i][0];
+    span.textContent = austinParks[i][0];
     button.appendChild(span);
 
-<<<<<<< HEAD
     let svg = document.createElement("svg");
     svg.setAttribute("data-accordion-icon", "");
     svg.setAttribute("class", "w-3 h-3 rotate-180 shrink-0");
@@ -287,13 +173,6 @@ function makeParkList() {
     svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
     svg.setAttribute("fill", "none");
     svg.setAttribute("viewBox", "0 0 10 6");
-=======
-      let ul = document.createElement("ul");
-      ul.setAttribute("id", "list-" + parkNumber);
-
-      // Add content here as necessary
-      content.appendChild(ul);
->>>>>>> f6930ff77a16cc2fb41b1b3b4f86046c179ae5c6
 
     let path = document.createElement("path");
     path.setAttribute("stroke", "currentColor");
@@ -313,7 +192,11 @@ function makeParkList() {
     let content = document.createElement("div");
     content.setAttribute("class", "p-5 border border-b-0 border-gray-200 dark:border-gray-700");
 
+    let ul = document.createElement("ul");
+    ul.setAttribute("id", "list-" + parkNumber);
+
     // Add content here as necessary
+    content.appendChild(ul);
 
     div.appendChild(content);
 
@@ -328,8 +211,8 @@ function makeParkList() {
 function attachButtonListeners() {
   var accordionButtons = document.querySelectorAll("button");
 
-  accordionButtons.forEach(function(button) {
-    button.addEventListener("click", function(event) {
+  accordionButtons.forEach(function (button) {
+    button.addEventListener("click", function (event) {
       console.log("button clicked");
       var buttonId = "accordion-collapse-body-" + event.target.id;
       console.log("This is the button ID: " + buttonId);
@@ -445,5 +328,3 @@ pullCrimes(austinParks[28][3], austinParks[28][1], austinParks[28][2], austinPar
 pullCrimes(austinParks[29][3], austinParks[29][1], austinParks[29][2], austinParks[29][4], '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-33").done(data => populateMap(data));
 
 // pullCrimes("30.242677", "30.294497", "-97.788501", "-97.717318", '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-5").done(data => populateMap(data));
-
-
