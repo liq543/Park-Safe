@@ -39,7 +39,6 @@ var reillySchoolPark = ["Reilly School Park", "30.328636", "-97.721011", "30.325
 // Array of all parks:
 var austinParks = [zilkerPark, ladyBirdLake, bartonCreekGreenbelt, mcKinneyFallsStatePark, emmaLongMetroPark, walCreekMetroPark, peasePark, royGuerreroPark, mayfieldPark,austinNatAndSciCent, shoalCreekGreenbelt, muellerLakePark, bullCreekGreenbelt, garrisonPark, lilStacyPark, southwestGreenway, balconesDistPark, millsPondRecArea, northwestDistPark, eastwoodsPark, greatHillsNeighPark, gracywoodsPark, austinMemParkCem, waterlooPark, westAustinNeighPark, southAusNeighPark, nicholasDawsonNeighPark, gillisNeighPark, adamsHemphillNeighPark, reillySchoolPark];
 
-
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: 30.2672, lng: -97.7431 }, // Austin, Texas
