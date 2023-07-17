@@ -243,9 +243,19 @@ function attachButtonListeners() {
       var parkIndex = parseInt(button.id) - 4;
       var parkName = austinParks[parkIndex][0];
       fetchParkImage(parkName, "list-" + button.id);
+
+      var parkLat = austinParks[parkIndex][1];
+      var parkLng = austinParks[parkIndex][2];
+      panToPark(parkLat, parkLng);
     });
   });
 }
+
+function panToPark(lat, lng) {
+  map.panTo(new google.maps.LatLng(lat, lng));
+  map.setZoom(15);
+}
+
 
 function appendImageToCarousel(imageUrl, parkName) {
   // Getting the carousel
