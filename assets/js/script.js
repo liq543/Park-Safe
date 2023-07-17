@@ -1,8 +1,9 @@
 
-// var zilkerParkCrimeList = document.getElementById("zilker-park-list");
 let map;
 var accordionButton = document.querySelectorAll("button")
 var parkList = document.getElementById("accordion-collapse");
+
+
 
 // Each park array contains: park name[0], northwest corner latitude[1], northwest corner longitude[2], southeast corner latitude[3], southeast corner longitude [4]
 var zilkerPark = ["Zilker Park", "30.276187", "-97.776181", "30.260135", "-97.771194"];
@@ -38,13 +39,7 @@ var reillySchoolPark = ["Reilly School Park", "30.328636", "-97.721011", "30.325
 
 // Array of all parks:
 
-<<<<<<< HEAD
-var austinParks = [zilkerPark, ladyBirdLake, bartonCreekGreenbelt, mcKinneyFallsStatePark, emmaLongMetroPark, walCreekMetroPark, peasePark, royGuerreroPark, mayfieldPark, austinNatAndSciCent, shoalCreekGreenbelt, muellerLakePark, bullCreekGreenbelt, garrisonPark, lilStacyPark, southwestGreenway, balconesDistPark, millsPondRecArea, northwestDistPark, eastwoodsPark, greatHillsNeighPark, gracywoodsPark, austinMemParkCem, waterlooPark, westAustinNeighPark, southAusNeighPark, nicholasDawsonNeighPark, gillisNeighPark, adamsHemphillNeighPark, reillySchoolPark];
-var austinParks = [zilkerPark, ladyBirdLake, bartonCreekGreenbelt, mcKinneyFallsStatePark, emmaLongMetroPark, walCreekMetroPark, peasePark, royGuerreroPark, mayfieldPark, austinNatAndSciCent, shoalCreekGreenbelt, muellerLakePark, bullCreekGreenbelt, garrisonPark, lilStacyPark, southwestGreenway, balconesDistPark, millsPondRecArea, northwestDistPark, eastwoodsPark, greatHillsNeighPark, gracywoodsPark, austinMemParkCem, waterlooPark, westAustinNeighPark, southAusNeighPark, nicholasDawsonNeighPark, gillisNeighPark, adamsHemphillNeighPark, reillySchoolPark];
-
-=======
 var austinParks = [zilkerPark, rosewoodNeighPark, bartonCreekGreenbelt, mcKinneyFallsStatePark, emmaLongMetroPark, walCreekMetroPark, peasePark, royGuerreroPark, mayfieldPark, austinNatAndSciCent, shoalCreekGreenbelt, muellerLakePark, bullCreekGreenbelt, garrisonPark, lilStacyPark, southwestGreenway, balconesDistPark, millsPondRecArea, northwestDistPark, eastwoodsPark, greatHillsNeighPark, gracywoodsPark, austinMemParkCem, waterlooPark, westAustinNeighPark, southAusNeighPark, nicholasDawsonNeighPark, gillisNeighPark, adamsHemphillNeighPark, reillySchoolPark];
->>>>>>> 2684baa2a66c1995cb5b76676d988800b2f5d65c
 
 
 //Loads our initial map location to show Austin.
