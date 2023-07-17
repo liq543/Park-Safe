@@ -39,6 +39,7 @@ var reillySchoolPark = ["Reilly School Park", "30.328636", "-97.721011", "30.325
 // Array of all parks:
 
 var austinParks = [zilkerPark, ladyBirdLake, bartonCreekGreenbelt, mcKinneyFallsStatePark, emmaLongMetroPark, walCreekMetroPark, peasePark, royGuerreroPark, mayfieldPark, austinNatAndSciCent, shoalCreekGreenbelt, muellerLakePark, bullCreekGreenbelt, garrisonPark, lilStacyPark, southwestGreenway, balconesDistPark, millsPondRecArea, northwestDistPark, eastwoodsPark, greatHillsNeighPark, gracywoodsPark, austinMemParkCem, waterlooPark, westAustinNeighPark, southAusNeighPark, nicholasDawsonNeighPark, gillisNeighPark, adamsHemphillNeighPark, reillySchoolPark];
+var austinParks = [zilkerPark, ladyBirdLake, bartonCreekGreenbelt, mcKinneyFallsStatePark, emmaLongMetroPark, walCreekMetroPark, peasePark, royGuerreroPark, mayfieldPark, austinNatAndSciCent, shoalCreekGreenbelt, muellerLakePark, bullCreekGreenbelt, garrisonPark, lilStacyPark, southwestGreenway, balconesDistPark, millsPondRecArea, northwestDistPark, eastwoodsPark, greatHillsNeighPark, gracywoodsPark, austinMemParkCem, waterlooPark, westAustinNeighPark, southAusNeighPark, nicholasDawsonNeighPark, gillisNeighPark, adamsHemphillNeighPark, reillySchoolPark];
 
 
 
@@ -48,6 +49,8 @@ function initMap() {
     zoom: 12,
   });
 }
+
+
 
 function pullCrimes(latMin, latMax, lngMin, lngMax, startDate, endDate, list) {
   return $.ajax({
@@ -228,29 +231,30 @@ function makeParkList() {
 function attachButtonListeners() {
   var accordionButtons = document.querySelectorAll("button");
 
-  accordionButtons.forEach(function (button) {
-    button.addEventListener("click", function (event) {
+  accordionButtons.forEach(function(button) {
+    button.addEventListener("click", function(event) {
       console.log("button clicked");
       var buttonId = "accordion-collapse-body-" + event.target.id;
       console.log("This is the button ID: " + buttonId);
       var element = document.getElementById(buttonId);
 
-      var visibility = element.classList.value;
-
-      console.log(visibility);
-
-      if (visibility === "visible") {
-        element.classList.value = "hidden";
-      } else if (visibility === "hidden") {
-        element.classList.value = "visible";
+      // Original functionality
+      let accordionBody = document.querySelector(button.dataset.accordionTarget);
+      if (accordionBody.classList.contains("hidden")) {
+        accordionBody.classList.remove("hidden");
+        button.setAttribute("aria-expanded", "true");
+      } else {
+        accordionBody.classList.add("hidden");
+        button.setAttribute("aria-expanded", "false");
       }
+
+      // New functionality: Fetch park images
+      var parkIndex = parseInt(button.id) - 4;
+      var parkName = austinParks[parkIndex][0];
+      fetchParkImage(parkName, "list-" + button.id);
     });
   });
 }
-
-
-
-
 
 // Call the functions.
 makeParkList();
