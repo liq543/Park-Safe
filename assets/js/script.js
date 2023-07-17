@@ -38,7 +38,7 @@ var reillySchoolPark = ["Reilly School Park", "30.328636", "-97.721011", "30.325
 
 // Array of all parks:
 
-var austinParks = [zilkerPark, ladyBirdLake, bartonCreekGreenbelt, mcKinneyFallsStatePark, emmaLongMetroPark, walCreekMetroPark, peasePark, royGuerreroPark, mayfieldPark, austinNatAndSciCent, shoalCreekGreenbelt, muellerLakePark, bullCreekGreenbelt, garrisonPark, lilStacyPark, southwestGreenway, balconesDistPark, MillsPondRecArea, northwestDistPark, eastwoodsPark, greatHillsNeighPark, gracywoodsPark, austinMemParkCem, waterlooPark, westAustinNeighPark, southAusNeighPark, nicholasDawsonNeighPark, gillisNeighPark, adamsHemphillNeighPark, reillySchoolPark];
+var austinParks = [zilkerPark, ladyBirdLake, bartonCreekGreenbelt, mcKinneyFallsStatePark, emmaLongMetroPark, walCreekMetroPark, peasePark, royGuerreroPark, mayfieldPark, austinNatAndSciCent, shoalCreekGreenbelt, muellerLakePark, bullCreekGreenbelt, garrisonPark, lilStacyPark, southwestGreenway, balconesDistPark, millsPondRecArea, northwestDistPark, eastwoodsPark, greatHillsNeighPark, gracywoodsPark, austinMemParkCem, waterlooPark, westAustinNeighPark, southAusNeighPark, nicholasDawsonNeighPark, gillisNeighPark, adamsHemphillNeighPark, reillySchoolPark];
 
 
 
@@ -247,16 +247,41 @@ function attachButtonListeners() {
   });
 }
 
+function appendImageToCarousel(imageUrl, parkName) {
+  // Getting the carousel
+  var carousel = document.querySelector(".carousel");
+
+  // Getting the image element in the carousel
+  var carouselImage = carousel.querySelector("img");
+
+  // Debugging: Log the carousel and the image
+  console.log("Carousel:", carousel);
+  console.log("Carousel Image:", carouselImage);
+
+  // Changing the source of the image
+  carouselImage.src = imageUrl;
+  console.log("New Image URL:", carouselImage.src);
+
+  // Change the caption based on the image
+  var figCaption = carousel.querySelector("figcaption");
+  
+  figCaption.textContent = parkName;
+}
+
 function fetchParkImage(parkName, listId) {
   // Constructing the Unsplash API URL
   var url = `https://api.unsplash.com/search/photos?query=${parkName}&client_id=bOrL9Sw6VZrA5KdtYZYVv4NObUrYUGJvbo2m6S5eeb8&per_page=1`;
 
   fetch(url)
-      .then(response => response.json())
+      .then(response => {
+          console.log("Fetch Response:", response);  // Debugging: Log the response
+          return response.json();
+      })
       .then(data => {
+          console.log("Fetch Data:", data);  // Debugging: Log the data
           if (data.results.length > 0) {
               var imageUrl = data.results[0].urls.small;
-              appendImageToList(listId, imageUrl);
+              appendImageToCarousel(imageUrl, parkName);
           }
       })
       .catch(error => console.log('Error:', error));
