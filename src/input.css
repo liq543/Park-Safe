@@ -4,25 +4,28 @@
 
 /* WE HAVE TO MANUALLY SET VIEWPORT HEIGHT HERE BECAUSE GOOGLE MAPS API EXPLICITLY REQUIRES IT BE SET */
 
+@layer utilities {
+    .square {
+        aspect-ratio: 1 / 1;
+    }
+}
+
 html, section {
     height: 100%;
 }
 
-
-.container, .searchDropDn {
-    margin: 10px;
-    padding: 5px;
-    width: 50%;
+body {
+    background-image: url("surveillance.png");
 }
 
-#searchBtnBar {
-    margin-top: 5px;
+.backnavcolor, #default-search, .contribs {
+    background-color: #2d2a32;
 }
 
 
 @media screen and (max-width: 639px) {
-    .container, .searchDropDn {
+    header, .searchDropDn {
         margin: 5px auto;
-        width: 75%;
+        width: 100%;
     }
 }
