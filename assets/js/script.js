@@ -229,8 +229,62 @@ function attachButtonListeners() {
   });
 }
 
+function appendImageToCarousel(imageUrl, parkName) {
+  // Getting the carousel
+  var carousel = document.querySelector(".carousel");
+
+  // Getting the image element in the carousel
+  var carouselImage = carousel.querySelector("img");
+
+  // Debugging: Log the carousel and the image
+  console.log("Carousel:", carousel);
+  console.log("Carousel Image:", carouselImage);
+
+  // Changing the source of the image
+  carouselImage.src = imageUrl;
+  console.log("New Image URL:", carouselImage.src);
+
+  // Change the caption based on the image
+  var figCaption = carousel.querySelector("figcaption");
+  
+  figCaption.textContent = parkName;
+}
+
+function fetchParkImage(parkName, listId) {
+  // Constructing the Unsplash API URL
+  parkName += " Austin, Texas";
+  var url = `https://api.unsplash.com/search/photos?query=${parkName}&client_id=bOrL9Sw6VZrA5KdtYZYVv4NObUrYUGJvbo2m6S5eeb8&per_page=1`;
+
+  fetch(url)
+      .then(response => {
+          console.log("Fetch Response:", response);  // Debugging: Log the response
+          return response.json();
+      })
+      .then(data => {
+          console.log("Fetch Data:", data);  // Debugging: Log the data
+          if (data.results.length > 0) {
+              var imageUrl = data.results[0].urls.small;
+              appendImageToCarousel(imageUrl, parkName);
+          }
+      })
+      .catch(error => console.log('Error:', error));
+}
+
+function appendImageToList(listId, imageUrl) {
+  // Getting the target list
+  var targetList = document.getElementById(listId);
+
+  // Creating a new image element
+  var newImage = document.createElement("img");
+  newImage.src = imageUrl;
+  
+  // Appending the image to the list
+  targetList.appendChild(newImage);
+}
+
 // Call the functions.
 makeParkList();
+fetchParkImage("Zilker Park", "list-4");
 // pullCrimes('30.259585', '30.277721', '-97.780467', '-97.763959', '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-4").done(data => populateMap(data));
 
 // console.log(austinParks[0][3] + austinParks[0][1] + austinParks[0][4] +austinParks[0][3]);
