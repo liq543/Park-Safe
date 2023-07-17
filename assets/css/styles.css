@@ -666,6 +666,26 @@ video {
   margin-bottom: 2.5rem;
 }
 
+.my-1 {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.my-12 {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.my-16 {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.my-14 {
+  margin-top: 3.5rem;
+  margin-bottom: 3.5rem;
+}
+
 .mb-1 {
   margin-bottom: 0.25rem;
 }
@@ -1167,6 +1187,16 @@ body {
   background-color: rgb(55 65 81 / var(--tw-bg-opacity));
 }
 
+.hover\:bg-red-700:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(185 28 28 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-gray-800:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+}
+
 .hover\:text-white:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
@@ -1273,6 +1303,11 @@ body {
     border-color: rgb(59 130 246 / var(--tw-border-opacity));
   }
 
+  .dark\:focus\:border-red-500:focus {
+    --tw-border-opacity: 1;
+    border-color: rgb(239 68 68 / var(--tw-border-opacity));
+  }
+
   .dark\:focus\:ring-blue-500:focus {
     --tw-ring-opacity: 1;
     --tw-ring-color: rgb(59 130 246 / var(--tw-ring-opacity));
@@ -1287,6 +1322,11 @@ body {
     --tw-ring-opacity: 1;
     --tw-ring-color: rgb(31 41 55 / var(--tw-ring-opacity));
   }
+
+  .dark\:focus\:ring-red-500:focus {
+    --tw-ring-opacity: 1;
+    --tw-ring-color: rgb(239 68 68 / var(--tw-ring-opacity));
+  }
 }
 
 @media (min-width: 300px) {
@@ -1294,8 +1334,25 @@ body {
     grid-column: span 2 / span 2;
   }
 
+  .xxs\:mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .xxs\:hidden {
     display: none;
+  }
+
+  .xxs\:w-full {
+    width: 100%;
+  }
+
+  .xxs\:place-items-center {
+    place-items: center;
+  }
+
+  .xxs\:justify-center {
+    justify-content: center;
   }
 
   .xxs\:bg-black {
@@ -1367,7 +1424,18 @@ body {
   .xs\:square {
     aspect-ratio: 1 / 1;
   }
+}
 
+@media (min-width: 300px) {
+  @media (min-width: 768px) {
+    .xxs\:md\:my-10 {
+      margin-top: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+  }
+}
+
+@media (min-width: 540px) {
   @media (min-width: 768px) {
     .xs\:md\:col-start-2 {
       grid-column-start: 2;
@@ -1399,6 +1467,11 @@ body {
   .md\:mx-auto {
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .md\:my-10 {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
   }
 
   .md\:block {
