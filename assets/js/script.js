@@ -38,7 +38,7 @@ var reillySchoolPark = ["Reilly School Park", "30.328636", "-97.721011", "30.325
 
 // Array of all parks:
 
-var austinParks = [zilkerPark, ladyBirdLake, bartonCreekGreenbelt, mcKinneyFallsStatePark, emmaLongMetroPark, walCreekMetroPark, peasePark, royGuerreroPark, mayfieldPark, austinNatAndSciCent, shoalCreekGreenbelt, muellerLakePark, bullCreekGreenbelt, garrisonPark, lilStacyPark, southwestGreenway, balconesDistPark, MillsPondRecArea, northwestDistPark, eastwoodsPark, greatHillsNeighPark, gracywoodsPark, austinMemParkCem, waterlooPark, westAustinNeighPark, southAusNeighPark, nicholasDawsonNeighPark, gillisNeighPark, adamsHemphillNeighPark, reillySchoolPark];
+var austinParks = [zilkerPark, ladyBirdLake, bartonCreekGreenbelt, mcKinneyFallsStatePark, emmaLongMetroPark, walCreekMetroPark, peasePark, royGuerreroPark, mayfieldPark, austinNatAndSciCent, shoalCreekGreenbelt, muellerLakePark, bullCreekGreenbelt, garrisonPark, lilStacyPark, southwestGreenway, balconesDistPark, millsPondRecArea, northwestDistPark, eastwoodsPark, greatHillsNeighPark, gracywoodsPark, austinMemParkCem, waterlooPark, westAustinNeighPark, southAusNeighPark, nicholasDawsonNeighPark, gillisNeighPark, adamsHemphillNeighPark, reillySchoolPark];
 
 
 
@@ -163,6 +163,10 @@ function makeParkList() {
     let heading = document.createElement("h2");
     heading.setAttribute("id", "accordion-collapse-heading-" + parkNumber);
 
+    heading.addEventListener("click", function () {
+      button.click();
+    });
+
     let button = document.createElement("button");
     button.setAttribute("type", "button");
     button.setAttribute("id", parkNumber);
@@ -174,6 +178,8 @@ function makeParkList() {
     let span = document.createElement("span");
     span.textContent = austinParks[i][0];
     button.appendChild(span);
+
+  
 
     let svg = document.createElement("svg");
     svg.setAttribute("data-accordion-icon", "");
@@ -214,6 +220,8 @@ function makeParkList() {
     accordion.appendChild(div);
   }
   attachButtonListeners();
+ 
+
 }
 
 //Used accordionButton function which took existing buttons and made them clickable, and made this function to make the new buttons made clickable.
@@ -239,6 +247,10 @@ function attachButtonListeners() {
     });
   });
 }
+
+
+
+
 
 // Call the functions.
 makeParkList();
