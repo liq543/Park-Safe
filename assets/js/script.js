@@ -42,6 +42,7 @@ var reillySchoolPark = ["Reilly School Park", "30.328636", "-97.721011", "30.325
 var austinParks = [zilkerPark, rosewoodNeighPark, bartonCreekGreenbelt, mcKinneyFallsStatePark, emmaLongMetroPark, walCreekMetroPark, peasePark, royGuerreroPark, mayfieldPark, austinNatAndSciCent, shoalCreekGreenbelt, muellerLakePark, bullCreekGreenbelt, garrisonPark, lilStacyPark, southwestGreenway, balconesDistPark, millsPondRecArea, northwestDistPark, eastwoodsPark, greatHillsNeighPark, gracywoodsPark, austinMemParkCem, waterlooPark, westAustinNeighPark, southAusNeighPark, nicholasDawsonNeighPark, gillisNeighPark, adamsHemphillNeighPark, reillySchoolPark];
 
 
+
 //Loads our initial map location to show Austin.
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
@@ -140,7 +141,8 @@ function makeParkList() {
 
   //For loop makes it so we go through every park in our array and do the things in the for loop for each park
   for (let i = 0; i < austinParks.length; i++) {
-    //Starts at 4 (0 + 4) because there were three default buttons that we commented out, and naming starts with 1(accordion-collapse-heading-1 and accordion-collapse-body-1).
+    // Assign each park a name for searching
+    austinParks[i].name = austinParks[i][0];
     let parkNumber = i + 4;
 
     //Create an h2 following the naming of the Tailwind API. because i = 0 and we commented out the first three default buttons that came with the Tailwind API, the very first id that we create with the h2 element should have the id "accordion-collapse-heading-4", the second should be "accordion-collapse-heading-5", etc.
@@ -306,8 +308,6 @@ fetchParkImage("Zilker Park", "list-4");
 // pullCrimes('30.259585', '30.277721', '-97.780467', '-97.763959', '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-4").done(data => populateMap(data));
 
 // console.log(austinParks[0][3] + austinParks[0][1] + austinParks[0][4] +austinParks[0][3]);
-
-//Below are the functions for all the parks in our array. We call all these functions in order to get the data for the parks.
 
 //Zilker Park
 pullCrimes(austinParks[0][3], austinParks[0][1], austinParks[0][2], austinParks[0][4], '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-4").done(data => populateMap(data));
