@@ -309,6 +309,80 @@ fetchParkImage("Zilker Park", "list-4");
 
 // console.log(austinParks[0][3] + austinParks[0][1] + austinParks[0][4] +austinParks[0][3]);
 
+// Get search input
+const searchInput = document.getElementById('default-search');
+
+// Initialize the parks list
+const accordionParksList = Array.from(document.querySelectorAll('#accordion-collapse h2')).map(park => {
+  return {
+    id: park.querySelector('button').id,
+    name: park.querySelector('span').textContent.trim(),
+  };
+});
+
+// Initialize Fuse.js with parks list options
+const options = {
+  includeScore: true,
+  keys: ['name']
+};
+const fuse = new Fuse(accordionParksList, options);
+
+// Listen for input changes
+searchInput.addEventListener('input', (e) => {
+  // Get current value
+  const query = e.target.value;
+
+  // If input is empty show all parks, else show search results
+  if (!query) {
+    Array.from(document.querySelectorAll('#accordion-collapse h2')).forEach((park) => {
+      park.style.display = 'block';
+    });
+  } else {
+    // Search the parks
+    const results = fuse.search(query);
+
+    // Get only the IDs of the matched parks
+    const resultsIDs = results.map(result => result.item.id);
+
+    // Go through all the parks in the accordion and hide those that don't match the search
+    Array.from(document.querySelectorAll('#accordion-collapse h2')).forEach((park) => {
+      if (!resultsIDs.includes(park.querySelector('button').id)) {
+        park.style.display = 'none';
+      } else {
+        park.style.display = 'block';
+      }
+    });
+  }
+});
+
+// Initialize autocomplete
+const autocomplete = new autoComplete({
+  data: {
+    src: accordionParksList,
+    keys: ['name'],
+  },
+  trigger: {
+    event: ['input', 'focus'],
+  },
+  placeHolder: "Search parks...",
+  resultItem: {
+    highlight: true,
+  },
+  events: {
+    input: {
+      selection: (event) => {
+        const selection = event.detail.selection.value;
+        searchInput.value = selection;
+
+        // Trigger input event to filter parks based on the autocomplete selection
+        searchInput.dispatchEvent(new Event('input'));
+      }
+    }
+  }
+});
+autocomplete.start();
+
+
 //Zilker Park
 pullCrimes(austinParks[0][3], austinParks[0][1], austinParks[0][2], austinParks[0][4], '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-4").done(data => populateMap(data));
 
