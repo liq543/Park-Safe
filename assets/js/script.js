@@ -70,6 +70,7 @@ function pullCrimes(latMin, latMax, lngMin, lngMax, startDate, endDate, list) {
 
     for (i = 0; i < data.length; i++) {
 
+      //Each button will have a list id that will be created in a function below. We're going to pass on that parameter list, which will be the id that we make, and the id should be named (list-4, list-5, etc). Once we get the id, we can go ahead and assign the crimes to that ID.
       var parkCrimeList = document.getElementById(list);
  
        var li = document.createElement("li");
@@ -180,6 +181,7 @@ function makeParkList() {
 
     button.appendChild(svg);
 
+    //Created a div element and then set an attribute with the id "accordion-collapse-body-" with the parkNumber at the end(accordion-collapse-body-4, accordion-collapse-body-5, etc) and making the default attribute hidden. This id name will be used in a later function that makes it so when you click the button, the class goes from hidden to visible if it was hidden, and visible to hidden if it was visible.
     let div = document.createElement("div");
     div.setAttribute("id", "accordion-collapse-body-" + parkNumber);
     div.setAttribute("class", "hidden");
@@ -188,10 +190,10 @@ function makeParkList() {
     let content = document.createElement("div");
     content.setAttribute("class", "p-5 border border-b-0 border-gray-200 dark:border-gray-700");
 
+    //We set the id to be "list-" with the parkNumber at the end, so we know where to assign this later in our pullCrimes function (pullCrimes(latMin, latMax, lngMin, lngMax, startDate, endDate, list)). The pullCrimes function will see the list id and know where to assign the crime data for it to.
     let ul = document.createElement("ul");
     ul.setAttribute("id", "list-" + parkNumber);
 
-    // Add content here as necessary
     content.appendChild(ul);
 
     div.appendChild(content);
@@ -203,18 +205,22 @@ function makeParkList() {
   attachButtonListeners();
 }
 
-//Used accordionButton function which took existing buttons and made them clickable, and made this function to make the new buttons made clickable.
+//The attachButtonListeners function is used at the end of the makeParkList function, and makes the buttons made there clickable and to how we want them to be clickable.
 function attachButtonListeners() {
+  //Find every button element because we want this to affect every button element that we create based on our array.
   var accordionButtons = document.querySelectorAll("button");
 
   accordionButtons.forEach(function(button) {
     button.addEventListener("click", function(event) {
       console.log("button clicked");
+      //event.target.id should find the id of the button we clicked, which we assigned in our makeParkList function with this line of code "button.setAttribute("id", parkNumber);". Our buttonId is named "accordion-collapse-body-" with the buttonId in order to target the body because we want the body to change to show the information or hide it whenever we click the button.
       var buttonId = "accordion-collapse-body-" + event.target.id;
       console.log("This is the button ID: " + buttonId);
+
+      //Because we set the buttonID to "accordion-collapse-body- + event.target.id", we're able to get a name like "accordion-collapse-body-4" which is how we named the ID's in our makeParkList function.
       var element = document.getElementById(buttonId);
 
-      // Original functionality
+      // Makes it so if the button has "hidden" on click, we take out the hidden and make the expanded equals to true to show the data. If it does not contain "hidden" on click, we add hidden and make expanded equal to false to hide the data.
       let accordionBody = document.querySelector(button.dataset.accordionTarget);
       if (accordionBody.classList.contains("hidden")) {
         accordionBody.classList.remove("hidden");
@@ -301,6 +307,8 @@ fetchParkImage("Zilker Park", "list-4");
 // pullCrimes('30.259585', '30.277721', '-97.780467', '-97.763959', '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-4").done(data => populateMap(data));
 
 // console.log(austinParks[0][3] + austinParks[0][1] + austinParks[0][4] +austinParks[0][3]);
+
+//Below are the functions for all the parks in our array. We call all these functions in order to get the data for the parks.
 
 //Zilker Park
 pullCrimes(austinParks[0][3], austinParks[0][1], austinParks[0][2], austinParks[0][4], '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-4").done(data => populateMap(data));
