@@ -269,6 +269,7 @@ function appendImageToCarousel(imageUrl, parkName) {
 
 function fetchParkImage(parkName, listId) {
   // Constructing the Unsplash API URL
+  parkName += " Austin, Texas";
   var url = `https://api.unsplash.com/search/photos?query=${parkName}&client_id=bOrL9Sw6VZrA5KdtYZYVv4NObUrYUGJvbo2m6S5eeb8&per_page=1`;
 
   fetch(url)
@@ -300,6 +301,7 @@ function appendImageToList(listId, imageUrl) {
 
 // Call the functions.
 makeParkList();
+fetchParkImage("Zilker Park", "list-4");
 // pullCrimes('30.259585', '30.277721', '-97.780467', '-97.763959', '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-4").done(data => populateMap(data));
 
 // console.log(austinParks[0][3] + austinParks[0][1] + austinParks[0][4] +austinParks[0][3]);
