@@ -135,16 +135,19 @@ function populateMap(data) {
 // This function makes the park list based on the array austinParks, and should take the whole array list, and fill out a list underneath the map on our page with the park names that function as buttons. We were able to list the buttons and make them functional by ourselves, but we did use chatGPT to help us with the formatting part of our button to make the button look like the Tailwind API we used for formatting.
 
 function makeParkList() {
-  
+  //Get ID accordion collapse because we want to add onto the accordion list shown in the index.html file (currently on line 97 on the index.html file)
   var accordion = document.getElementById("accordion-collapse"); 
 
+  //For loop makes it so we go through every park in our array and do the things in the for loop for each park
   for (let i = 0; i < austinParks.length; i++) {
+    //Starts at 4 (0 + 4) because there were three default buttons that we commented out, and naming starts with 1(accordion-collapse-heading-1 and accordion-collapse-body-1).
     let parkNumber = i + 4;
 
+    //Create an h2 following the naming of the Tailwind API. because i = 0 and we commented out the first three default buttons that came with the Tailwind API, the very first id that we create with the h2 element should have the id "accordion-collapse-heading-4", the second should be "accordion-collapse-heading-5", etc.
     let heading = document.createElement("h2");
     heading.setAttribute("id", "accordion-collapse-heading-" + parkNumber);
 
-
+    //Create a button, and assign a button id to it. We need each button to have an ID for our later function when we use "event.target.id" in order to get the ID based on the button that is clicked. We assign the id number based off of our parkNumber, similar to the heading. We also set the attributes below to match the initial formatting of the default buttons.
     let button = document.createElement("button");
     button.setAttribute("type", "button");
     button.setAttribute("id", parkNumber);
