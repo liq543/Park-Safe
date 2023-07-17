@@ -623,6 +623,14 @@ video {
   margin: 0px;
 }
 
+.m-3 {
+  margin: 0.75rem;
+}
+
+.m-auto {
+  margin: auto;
+}
+
 .mx-0 {
   margin-left: 0px;
   margin-right: 0px;
@@ -646,6 +654,16 @@ video {
 .my-8 {
   margin-top: 2rem;
   margin-bottom: 2rem;
+}
+
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.my-10 {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .mb-1 {
@@ -728,6 +746,10 @@ video {
   height: 1.5rem;
 }
 
+.h-64 {
+  height: 16rem;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -801,6 +823,10 @@ video {
 
 .grid-flow-row {
   grid-auto-flow: row;
+}
+
+.place-content-center {
+  place-content: center;
 }
 
 .place-items-center {
