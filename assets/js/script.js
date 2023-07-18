@@ -1,9 +1,8 @@
-
 let map;
 var accordionButton = document.querySelectorAll("button")
 var parkList = document.getElementById("accordion-collapse");
 
-// Each park array contains: park name[0], northwest corner latitude[1], northwest corner longitude[2], southeast corner latitude[3], southeast corner longitude [4], center latitude [5], center longitude [6]
+// Each park array contains: park name[0], northwest corner latitude[1], northwest corner longitude[2], southeast corner latitude[3], southeast corner longitude [4], center latitude [5], center longitude [6], zoom level [7]
 var zilkerPark = ["Zilker Park", "30.276187", "-97.776181", "30.260135", "-97.771194", "30.266895", "-97.772923", "13"];
 var rosewoodNeighPark = ["Rosewood Neighborhood Park", "30.274653", ",-97.716333", "30.271005", "-97.709234", "30.271031", "-97.713467", "15"];
 var bartonCreekGreenbelt = ["Barton Creek Greenbelt", "30.285798", "-97.827646", "30.234250", "-97.784231", "30.244643", "-97.813160", "14"];
@@ -240,7 +239,7 @@ function attachButtonListeners() {
       var parkLat = austinParks[parkIndex][5];
       var parkLng = austinParks[parkIndex][6];
       var parkZoom = Number(austinParks[parkIndex][7]);
-      // var parkZoom = austinParks[parkIndex][7];
+
       panToPark(parkLat, parkLng, parkZoom);
     });
   });
@@ -433,6 +432,13 @@ function pullYear() {
   const oneYearAgo = new Date(monday);
   oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
   pcDate1 = oneYearAgo.toISOString().substring(0, 10);
+  pcDate2 = monday.toISOString().substring(0, 10);
+  pullAllCrimes();
+}
+
+function pull2003() {
+  depopulateMap();
+  pcDate1 = "2003-05-01";
   pcDate2 = monday.toISOString().substring(0, 10);
   pullAllCrimes();
 }
