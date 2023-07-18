@@ -21,13 +21,17 @@ You can also use the search function to search for names of parks to see if the 
 
 <img src="./assets/images/read-me-img3.jpg"/>
 
+You can use the "Filter Your Search" section at the bottom right in order to filter your search by crimes that have happened the past week, month, or year.
+
+<img src="./assets/images/read-me-img7.jpg"/>
+
 Clicking on the "Austin" tab above brings you to the official website of "The City of Austin" where you can get even more information about Austin!
 
 <img src="./assets/images/read-me-img5.jpg"/>
 
 Clicking on the "About" tab will tell you about our website and the goals we had when creating this website. At the bottom is an e-mail list that you can enter your e-mail in and be updated when we add more parks to the list or when the weekly police crime list has been released so the API data gets updated.
 
-(Picture Here Later)
+<img src="./assets/images/read-me-img6.jpg"/>
 
 NOTE: We are not saying that a park is dangerous based on our data. We are just giving the data that is on the Austin Police API based on the location. Bigger parks such as Zilker may have more crimes than other parks, but that is because it is the largest park in Austin so it covers more area.
 
@@ -41,7 +45,8 @@ You can download our repo from our repo page using the following command in git 
 
 or you can visit our page below
 
-https://liq543.github.io/Park-Safe/
+https://liq543.github.io/Park-Safe/ - Deploy Page
+
 
 ## Credits
 https://tailwindcss.com/docs/installation - Tailwind CSS
@@ -50,9 +55,11 @@ https://developers.google.com/maps - Google Maps API
 
 https://dev.socrata.com/foundry/data.austintexas.gov/fdj4-gpfu - Austin Police Reports API
 
-ChatGPT - Helped us save time with code dealing with other third party sources. Used it to help create our buttons to be formatted in the same as Tailwind, and used it to help with the search bar that we used fuse.js to help filter the search results.
-
 https://www.fusejs.io/ - Fuse.js
+
+https://unsplash.com/developers - Unisplash
+
+ChatGPT - Helped us save time with code dealing with other third party sources. Used it to help create our buttons to be formatted in the same as Tailwind, and used it to help with the search bar that we used fuse.js to help filter the search results.
 
 ## License
 
