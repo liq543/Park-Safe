@@ -15,11 +15,7 @@ html, section {
 }
 
 body {
-    background-image: url("/assets/images/survaillence.png");
-}
-
-.backnavcolor, #default-search, .contribs {
-    background-color: #2d2a32;
+    /* background-image: url("/assets/images/survaillence.png"); */
 }
 
 

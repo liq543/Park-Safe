@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="./src/input.css">
 </head>
 
-<body>
+<body class="bg-gray-50">
     <header>
-        <nav class="backnavcolor">
+        <nav class="bg-gradient-to-tr from-gray-500 to-black">
             <div class="mx-0 mb-1 max-w-7xl px-2 xs:px-6 md:px-8">
                 <div class="relative mb-px flex h-16 items-center justify-between">
                     <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -55,67 +55,108 @@
                 <span class="md:col-span-2">Is My Park Safe?</span>
             </h1>
             <p class="xs:row-start-2 xs:col-start-2 xs:self-center md:col-start-1 md:col-span-2 md:pr-12 md:text-lg">
-                In a perfect world this is not a question, but here we are. This web-based application works to serve the greater community of Austin, Texas in an effort to positively effect the lives of its inhabitants. Our aim was to develop an application to provide a spyglass for the public. In order to do that, we coupled <a href="https://developers.google.com/maps/documentation" class="underline text-blue-500">Google Maps API</a> and crime data from the Austin Police Department <a href="https://data.austintexas.gov/Public-Safety/Crime-Reports/fdj4-gpfu" class="underline text-blue-500">Crime Reports API</a> to streamline the experience for the user.</p>
+                In a perfect world this is not a question, but here we are. This web-based application works to serve
+                the greater community of Austin, Texas in an effort to positively effect the lives of its inhabitants.
+                Our aim was to develop an application to provide a spyglass for the public. In order to do that, we
+                coupled <a href="https://developers.google.com/maps/documentation"
+                    class="underline text-blue-500">Google Maps API</a> and crime data from the Austin Police Department
+                <a href="https://data.austintexas.gov/Public-Safety/Crime-Reports/fdj4-gpfu"
+                    class="underline text-blue-500">Crime Reports API</a> to streamline the experience for the user.</p>
             <div class="h-16 bg-gradient-to-br from-gray-500 to-black xs:h-auto xs:square rounded"></div>
-            <div class="h-16 bg-gradient-to-br from-gray-500 to-black xs:h-auto xs:square rounded"></div>
+            <div class="h-16 hidden xs:flex place-items-center justify-center bg-black xs:h-auto xs:square rounded text-white transition ease-in-out delay-100 hover:-translate-y-1/4 duration-200"><a href="https://www.github.com/aomaits"><img src="#" alt=""></a>Abe</div>
             <div
-                class="h-16 hidden xs:flex xs:bg-black xs:h-auto xs:square rounded transition ease-in-out delay-100 hover:translate-x-1/4 duration-200">
-                <a href="https://www.github.com/zbichsel"><img src="./assets/images/zbichsel.jpeg" class="rounded"
-                        alt="Zackrey Bichsel"></a>
+                class="h-16 hidden xs:flex xs:bg-black md:bg-gray-700 xs:h-auto xs:square rounded transition ease-in-out delay-100 hover:translate-x-1/4 duration-200"></div>
+            <div
+                class="h-16 hidden xs:flex place-items-center justify-center text-white bg-black xs:h-auto xs:square md:col-start-2 rounded transition ease-in-out delay-100 hover:-translate-x-1/4 duration-200"><a href="https://www.github.com/rockojoe2"><img src="#" class="rounded"
+                    alt="">Joey</a>
             </div>
-            <div class="h-16 bg-gradient-to-br from-gray-500 to-black xs:h-auto xs:square md:col-start-2 rounded"></div>
+            <div class="h-16 hidden xs:flex text-white bg-gray-900 xs:h-auto xs:square place-items-center justify-center rounded transition ease-in-out delay-100 hover:translate-y-1/4 duration-200"><a href="https://www.github.com/liq543"><img src="#" class="rounded"
+                alt="">Griffen</a></div>
+            <div class="h-16 hidden xs:flex xs:h-auto xs:square rounded transition ease-in-out delay-100 hover:translate-x-1/4 duration-200"><a href="https://www.github.com/zbichsel"><img src="./assets/images/zbichsel.jpeg" class="rounded"
+                alt="Zackrey Bichsel"></a></div>
+            <div class="h-16 hidden xs:flex bg-gradient-to-br from-gray-500 to-black xs:h-auto xs:square rounded"></div>
             <div class="h-16 bg-gray-600 xs:h-auto xs:square rounded"></div>
-            <div class="h-16 bg-gradient-to-br from-gray-500 to-black xs:h-auto xs:square rounded"></div>
-            <div class="h-16 bg-gradient-to-br from-gray-500 to-black xs:h-auto xs:square rounded"></div>
-            <div class="h-16 bg-gray-500 xs:h-auto xs:square rounded"></div>
-            <p class="self-center md:text-lg md:col-span-2 md:text-center md:px-4">Safety is an important issue for every human. We are here to provide the necessary tools to quell any worries you may have. So when you ask yourself whether your park is safe, all you must do is search.</p>
-            <div class="h-16 hidden xs:flex bg-gray-500 xs:h-auto xs:square rounded xs:self-center md:col-start-2">
+            <p class="self-center md:text-lg md:col-span-2 md:text-center md:px-4">Safety is an important issue for
+                every human. We are here to provide the necessary tools to quell any worries you may have. So when you
+                ask yourself whether your park is safe, all you must do is search.</p>
+            <div class="h-16 bg-gray-700 xs:h-auto xs:square rounded xs:self-center md:col-start-2">
             </div>
             <div class="h-16 hidden xs:flex bg-gray-500 xs:h-auto xs:square rounded"></div>
             <div class="h-16 hidden xs:flex bg-gray-500 xs:h-auto xs:square rounded"></div>
+
+            <!-- GitHub links for xxs screen size -->
+            <div
+                class="h-16 xxs:flex bg-gray-800 rounded text-gray-300 place-items-center justify-evenly xs:hidden">
+
+                <button><a href="https://www.github.com/aomaits" class="hover:bg-gray-700 hover:text-white rounded-md px-4 py-3">Abe</a></button>
+                <button><a href="https://www.github.com/liq543" class="hover:bg-gray-700 hover:text-white rounded-md px-4 py-3">Griff</a></button>
+                <button><a href="https://www.github.com/rockojoe2" class="hover:bg-gray-700 hover:text-white rounded-md px-4 py-3">Joey</a></button>
+                <button><a href="https://www.github.com/zbichsel"
+                        class="hover:bg-gray-700 hover:text-white rounded-md px-4 py-3">Zack</a></button>
+
+            </div>
         </div>
 
         <!-- Form utilizing local storage for email addresses -->
-        <section class="bg-white dark:bg-gray-900">
+        <section class="w-full mb-1 bg-gradient-to-tr from-gray-500 to-black">
             <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
                 <div class="mx-auto max-w-screen-md sm:text-center">
-                    <h2 class="mb-4 text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl dark:text-white">Sign up for our newsletter</h2>
-                    <p class="mx-auto mb-8 max-w-2xl font-light text-gray-500 md:mb-12 sm:text-xl dark:text-gray-400">Stay up to date with the roadmap progress, announcements and exclusive discounts feel free to sign up with your email.</p>
-                    <form id = "emailForm" action="#">
-                        <div class="items-center mx-auto mb-3 space-y-4 max-w-screen-sm sm:flex sm:space-y-0">
+                    <h2 class="mb-4 text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl dark:text-white">
+                        Sign up for our newsletter</h2>
+                    <p class="mb-8 max-w-2xl text-justify font-light text-gray-500 md:mb-12 sm:text-xl dark:text-gray-400">
+                        Stay up to date with the roadmap progress, announcements and exclusive discounts feel free to
+                        sign up with your email.</p>
+                    <form id="emailForm" action="#">
+                        <div class="items-center w-3/4 mx-auto mb-3 space-y-4 max-w-screen-sm sm:flex sm:space-y-0">
                             <div class="relative w-full">
-                                <label for="email" class="hidden mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Email address</label>
+                                <label for="email"
+                                    class="hidden mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Email
+                                    address</label>
                                 <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                                    <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
+                                    <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor"
+                                        viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z">
+                                        </path>
+                                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                                    </svg>
                                 </div>
-                                <input id="email" class="block p-3 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:rounded-none sm:rounded-l-lg focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Enter your email" type="email" required="">
+                                <input id="email"
+                                    class="block p-3 pl-10 w-full text-sm text-gray-900 rounded-md border border-gray-300 sm:rounded-none sm:rounded-l-lg dark:bg-gray-200 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+                                    placeholder="Enter your email" type="email" required="">
                             </div>
                             <div>
-                                <button type="submit" class="py-3 px-5 w-full text-sm font-medium text-center text-black rounded-lg border cursor-pointer bg-primary-700 border-primary-600 sm:rounded-none sm:rounded-r-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Subscribe</button>
+                                <button type="submit"
+                                    class="py-3 px-5 w-full text-sm font-medium text-center text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg mr-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800">Subscribe</button>
                             </div>
                             <ul id="priorEmailsBelow"></ul>
                         </div>
-                        <div class="mx-auto max-w-screen-sm text-sm text-left text-gray-500 newsletter-form-footer dark:text-gray-300">We care about the protection of your data. <a href="#" class="font-medium text-primary-600 dark:text-primary-500 hover:underline">Read our Privacy Policy</a>.</div>
+                        <div
+                            class="mx-auto text-center max-w-screen-sm text-sm text-gray-500 newsletter-form-footer dark:text-gray-300">
+                            We care about the protection of your data. <a href="https://www.freeprivacypolicy.com/live/93557ba7-599e-45ad-b61b-caa8952066f5"
+                                class="font-medium text-primary-600 dark:text-primary-500 hover:underline">Read our
+                                Privacy Policy</a>.</div>
                     </form>
                 </div>
             </div>
-          </section>
+        </section>
 
         <!-- Footer -->
-        <footer class="bg-white shadow dark:bg-gray-900 min-w-full contribs">
+        <footer class="bg-white shadow bg-gradient-to-br from-gray-500 to-black min-w-full contribs">
             <div class="w-full max-w-screen-xl mx-auto mt-1 p-4 md:py-8">
                 <div class="sm:flex sm:items-center sm:justify-between">
-                    <a href="https://flowbite.com/" class="flex items-center mb-4 sm:mb-0">
-                        <img src="./assets/img/survaillence.png" class="h-8 mr-3" alt="Flowbite Logo" />
+                    <a href="./index.html" class="flex items-center mb-4 sm:mb-0">
+                        <img src="./assets/img/survaillence.png" class="h-8 mr-3" alt="Surveillance Camera" />
                         <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Is My Park
                             Safe?</span>
                     </a>
                 </div>
                 <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
                 <span class="block text-center text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a
-                        href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.</span>
+                        href="./index.html" class="hover:underline"></a>. All Rights Reserved.</span>
             </div>
         </footer>
 </body>
 <script src="./assets/js/about-parkScript.js"></script>
+
 </html>
