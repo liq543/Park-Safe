@@ -41,8 +41,7 @@ You can download our repo from our repo page using the following command in git 
 
 or you can visit our page below
 
-(Insert page here when it is deployed)
-
+https://liq543.github.io/Park-Safe/
 
 ## Credits
 https://tailwindcss.com/docs/installation - Tailwind CSS
