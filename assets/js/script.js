@@ -241,14 +241,15 @@ function attachButtonListeners() {
 
       var parkLat = austinParks[parkIndex][5];
       var parkLng = austinParks[parkIndex][6];
-      panToPark(parkLat, parkLng);
+      var myZoom = 15;
+      panToPark(parkLat, parkLng, myZoom);
     });
   });
 }
 
-function panToPark(lat, lng) {
+function panToPark(lat, lng, zoom) {
   map.panTo(new google.maps.LatLng(lat, lng));
-  map.setZoom(15);
+  map.setZoom(zoom);
 }
 
 
@@ -433,6 +434,13 @@ function pullYear() {
   const oneYearAgo = new Date(monday);
   oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
   pcDate1 = oneYearAgo.toISOString().substring(0, 10);
+  pcDate2 = monday.toISOString().substring(0, 10);
+  pullAllCrimes();
+}
+
+function pull2003() {
+  depopulateMap();
+  pcDate1 = "2003-05-01";
   pcDate2 = monday.toISOString().substring(0, 10);
   pullAllCrimes();
 }
