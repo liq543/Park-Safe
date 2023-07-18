@@ -149,6 +149,7 @@ function makeParkList() {
     let heading = document.createElement("h2");
     heading.setAttribute("id", "accordion-collapse-heading-" + parkNumber);
 
+
     //Create a button, and assign a button id to it. We need each button to have an ID for our later function when we use "event.target.id" in order to get the ID based on the button that is clicked. We assign the id number based off of our parkNumber, similar to the heading. We also set the attributes below to match the initial formatting of the default buttons.
     let button = document.createElement("button");
     button.setAttribute("type", "button");
