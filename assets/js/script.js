@@ -72,25 +72,25 @@ function pullCrimes(latMin, latMax, lngMin, lngMax, startDate, endDate, list) {
 
       //Each button will have a list id that will be created in a function below. We're going to pass on that parameter list, which will be the id that we make, and the id should be named (list-4, list-5, etc). Once we get the id, we can go ahead and assign the crimes to that ID.
       var parkCrimeList = document.getElementById(list);
- 
-       var li = document.createElement("li");
-       var latitude = parseFloat(data[i].latitude);
-       var longitude = parseFloat(data[i].longitude);
-       var crimeList = parseFloat(data.length);
-       
+
+      var li = document.createElement("li");
+      var latitude = parseFloat(data[i].latitude);
+      var longitude = parseFloat(data[i].longitude);
+      var crimeList = parseFloat(data.length);
+
       //  This set of variables changes the date and time of the crimes to be legible using dayJS
-       var timeDayJSUnderstands = data[i].occ_date_time + "Z"
-       var betterTime = dayjs(timeDayJSUnderstands);
-       var bestTime = betterTime.format('MMM D, YYYY, h:mm A');
-       
-       var crimeDateAndType =  bestTime + "  |  " + data[i].crime_type;
- 
-       li.textContent = crimeDateAndType;
-       parkCrimeList.appendChild(li);
- 
- 
-       //console.log("This is the both " + crimeDateAndType);
-     }
+      var timeDayJSUnderstands = data[i].occ_date_time + "Z"
+      var betterTime = dayjs(timeDayJSUnderstands);
+      var bestTime = betterTime.format('MMM D, YYYY, h:mm A');
+
+      var crimeDateAndType = bestTime + "  |  " + data[i].crime_type;
+
+      li.textContent = crimeDateAndType;
+      parkCrimeList.appendChild(li);
+
+
+      //console.log("This is the both " + crimeDateAndType);
+    }
 
   });
 }
@@ -137,7 +137,7 @@ function populateMap(data) {
 
 function makeParkList() {
   //Get ID accordion collapse because we want to add onto the accordion list shown in the index.html file (currently on line 97 on the index.html file)
-  var accordion = document.getElementById("accordion-collapse"); 
+  var accordion = document.getElementById("accordion-collapse");
 
   //For loop makes it so we go through every park in our array and do the things in the for loop for each park
   for (let i = 0; i < austinParks.length; i++) {
@@ -162,7 +162,7 @@ function makeParkList() {
     span.textContent = austinParks[i][0];
     button.appendChild(span);
 
-  
+
 
     let svg = document.createElement("svg");
     svg.setAttribute("data-accordion-icon", "");
@@ -211,8 +211,8 @@ function attachButtonListeners() {
   //Find every button element because we want this to affect every button element that we create based on our array.
   var accordionButtons = document.querySelectorAll("button");
 
-  accordionButtons.forEach(function(button) {
-    button.addEventListener("click", function(event) {
+  accordionButtons.forEach(function (button) {
+    button.addEventListener("click", function (event) {
       console.log("button clicked");
       //event.target.id should find the id of the button we clicked, which we assigned in our makeParkList function with this line of code "button.setAttribute("id", parkNumber);". Our buttonId is named "accordion-collapse-body-" with the buttonId in order to target the body because we want the body to change to show the information or hide it whenever we click the button.
       var buttonId = "accordion-collapse-body-" + event.target.id;
@@ -266,7 +266,7 @@ function appendImageToCarousel(imageUrl, parkName) {
 
   // Change the caption based on the image
   var figCaption = carousel.querySelector("figcaption");
-  
+
   figCaption.textContent = parkName;
 }
 
@@ -276,18 +276,18 @@ function fetchParkImage(parkName, listId) {
   var url = `https://api.unsplash.com/search/photos?query=${parkName}&client_id=bOrL9Sw6VZrA5KdtYZYVv4NObUrYUGJvbo2m6S5eeb8&per_page=1`;
 
   fetch(url)
-      .then(response => {
-          console.log("Fetch Response:", response);  // Debugging: Log the response
-          return response.json();
-      })
-      .then(data => {
-          console.log("Fetch Data:", data);  // Debugging: Log the data
-          if (data.results.length > 0) {
-              var imageUrl = data.results[0].urls.small;
-              appendImageToCarousel(imageUrl, parkName);
-          }
-      })
-      .catch(error => console.log('Error:', error));
+    .then(response => {
+      console.log("Fetch Response:", response);  // Debugging: Log the response
+      return response.json();
+    })
+    .then(data => {
+      console.log("Fetch Data:", data);  // Debugging: Log the data
+      if (data.results.length > 0) {
+        var imageUrl = data.results[0].urls.small;
+        appendImageToCarousel(imageUrl, parkName);
+      }
+    })
+    .catch(error => console.log('Error:', error));
 }
 
 function appendImageToList(listId, imageUrl) {
@@ -297,7 +297,7 @@ function appendImageToList(listId, imageUrl) {
   // Creating a new image element
   var newImage = document.createElement("img");
   newImage.src = imageUrl;
-  
+
   // Appending the image to the list
   targetList.appendChild(newImage);
 }
