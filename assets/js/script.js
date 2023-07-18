@@ -382,95 +382,107 @@ const autocomplete = new autoComplete({
 });
 autocomplete.start();
 
+// Defining date variables for the pullCrimes function, pcDate1 is one month prior to the most recent monday, pcDate2 is the most recent monday.
+const today = new Date();
+const monday = new Date(today);
+monday.setDate(monday.getDate() - monday.getDay() + 1);
+
+const oneMonthAgo = new Date(monday);
+oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
+
+const pcDate1 = oneMonthAgo.toISOString().substring(0, 10);
+const pcDate2 = monday.toISOString().substring(0, 10);
+console.log(pcDate1);
+console.log(pcDate2);
+
 
 //Zilker Park
-pullCrimes(austinParks[0][3], austinParks[0][1], austinParks[0][2], austinParks[0][4], '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-4").done(data => populateMap(data));
+pullCrimes(austinParks[0][3], austinParks[0][1], austinParks[0][2], austinParks[0][4], pcDate1, pcDate2, "list-4").done(data => populateMap(data));
 
 //Rosewood Neighborhood Park
-pullCrimes(austinParks[1][3], austinParks[1][1], austinParks[1][2], austinParks[1][4], '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-5").done(data => populateMap(data));
+pullCrimes(austinParks[1][3], austinParks[1][1], austinParks[1][2], austinParks[1][4], pcDate1, pcDate2, "list-5").done(data => populateMap(data));
 
 //Barton Creek Greenbelt
-pullCrimes(austinParks[2][3], austinParks[2][1], austinParks[2][2], austinParks[2][4], '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-6").done(data => populateMap(data));
+pullCrimes(austinParks[2][3], austinParks[2][1], austinParks[2][2], austinParks[2][4], pcDate1, pcDate2, "list-6").done(data => populateMap(data));
 
-//McKinney Falls State Park 
-pullCrimes(austinParks[3][3], austinParks[3][1], austinParks[3][2], austinParks[3][4], '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-7").done(data => populateMap(data));
+//McKinney Falls State Park
+pullCrimes(austinParks[3][3], austinParks[3][1], austinParks[3][2], austinParks[3][4], pcDate1, pcDate2, "list-7").done(data => populateMap(data));
 
 //Emma Long Metro Park
-pullCrimes(austinParks[4][3], austinParks[4][1], austinParks[4][2], austinParks[4][4], '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-8").done(data => populateMap(data));
+pullCrimes(austinParks[4][3], austinParks[4][1], austinParks[4][2], austinParks[4][4], pcDate1, pcDate2, "list-8").done(data => populateMap(data));
 
 // Walnut Creek Metro Park
-pullCrimes(austinParks[5][3], austinParks[5][1], austinParks[5][2], austinParks[5][4], '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-9").done(data => populateMap(data));
+pullCrimes(austinParks[5][3], austinParks[5][1], austinParks[5][2], austinParks[5][4], pcDate1, pcDate2, "list-9").done(data => populateMap(data));
 
 // Pease Park
-pullCrimes(austinParks[6][3], austinParks[6][1], austinParks[6][2], austinParks[6][4], '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-10").done(data => populateMap(data));
+pullCrimes(austinParks[6][3], austinParks[6][1], austinParks[6][2], austinParks[6][4], pcDate1, pcDate2, "list-10").done(data => populateMap(data));
 
 // Roy G Guerrero Colorado River Park
-pullCrimes(austinParks[7][3], austinParks[7][1], austinParks[7][2], austinParks[7][4], '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-11").done(data => populateMap(data));
+pullCrimes(austinParks[7][3], austinParks[7][1], austinParks[7][2], austinParks[7][4], pcDate1, pcDate2, "list-11").done(data => populateMap(data));
 
 // Mayfield Park and Nature Preserve
-pullCrimes(austinParks[8][3], austinParks[8][1], austinParks[8][2], austinParks[8][4], '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-12").done(data => populateMap(data));
+pullCrimes(austinParks[8][3], austinParks[8][1], austinParks[8][2], austinParks[8][4], pcDate1, pcDate2, "list-12").done(data => populateMap(data));
 
 // Austin Nature and Science Center
-pullCrimes(austinParks[9][3], austinParks[9][1], austinParks[9][2], austinParks[9][4], '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-13").done(data => populateMap(data));
+pullCrimes(austinParks[9][3], austinParks[9][1], austinParks[9][2], austinParks[9][4], pcDate1, pcDate2, "list-13").done(data => populateMap(data));
 
 // Shoal Creek Greenbelt
-pullCrimes(austinParks[10][3], austinParks[10][1], austinParks[10][2], austinParks[10][4], '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-14").done(data => populateMap(data));
+pullCrimes(austinParks[10][3], austinParks[10][1], austinParks[10][2], austinParks[10][4], pcDate1, pcDate2, "list-14").done(data => populateMap(data));
 
 // Mueller Lake Park
-pullCrimes(austinParks[11][3], austinParks[11][1], austinParks[11][2], austinParks[11][4], '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-15").done(data => populateMap(data));
+pullCrimes(austinParks[11][3], austinParks[11][1], austinParks[11][2], austinParks[11][4], pcDate1, pcDate2, "list-15").done(data => populateMap(data));
 
 // Bull Creek Greenbelt
-pullCrimes(austinParks[12][3], austinParks[12][1], austinParks[12][2], austinParks[12][4], '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-16").done(data => populateMap(data));
+pullCrimes(austinParks[12][3], austinParks[12][1], austinParks[12][2], austinParks[12][4], pcDate1, pcDate2, "list-16").done(data => populateMap(data));
 
 // Garrison District Park
-pullCrimes(austinParks[13][3], austinParks[13][1], austinParks[13][2], austinParks[13][4], '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-17").done(data => populateMap(data));
+pullCrimes(austinParks[13][3], austinParks[13][1], austinParks[13][2], austinParks[13][4], pcDate1, pcDate2, "list-17").done(data => populateMap(data));
 
 // Little Stacy Park
-pullCrimes(austinParks[14][3], austinParks[14][1], austinParks[14][2], austinParks[14][4], '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-18").done(data => populateMap(data));
+pullCrimes(austinParks[14][3], austinParks[14][1], austinParks[14][2], austinParks[14][4], pcDate1, pcDate2, "list-18").done(data => populateMap(data));
 
 // Southwest Greenway
-pullCrimes(austinParks[15][3], austinParks[15][1], austinParks[15][2], austinParks[15][4], '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-19").done(data => populateMap(data));
+pullCrimes(austinParks[15][3], austinParks[15][1], austinParks[15][2], austinParks[15][4], pcDate1, pcDate2, "list-19").done(data => populateMap(data));
 
 // Balcones District Park
-pullCrimes(austinParks[16][3], austinParks[16][1], austinParks[16][2], austinParks[16][4], '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-20").done(data => populateMap(data));
+pullCrimes(austinParks[16][3], austinParks[16][1], austinParks[16][2], austinParks[16][4], pcDate1, pcDate2, "list-20").done(data => populateMap(data));
 
 // Mills Pond Recreation Area
-pullCrimes(austinParks[17][3], austinParks[17][1], austinParks[17][2], austinParks[17][4], '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-21").done(data => populateMap(data));
+pullCrimes(austinParks[17][3], austinParks[17][1], austinParks[17][2], austinParks[17][4], pcDate1, pcDate2, "list-21").done(data => populateMap(data));
 
 // Northwest District Park
-pullCrimes(austinParks[18][3], austinParks[18][1], austinParks[18][2], austinParks[18][4], '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-22").done(data => populateMap(data));
+pullCrimes(austinParks[18][3], austinParks[18][1], austinParks[18][2], austinParks[18][4], pcDate1, pcDate2, "list-22").done(data => populateMap(data));
 
 // Eastwoods Park
-pullCrimes(austinParks[19][3], austinParks[19][1], austinParks[19][2], austinParks[19][4], '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-23").done(data => populateMap(data));
+pullCrimes(austinParks[19][3], austinParks[19][1], austinParks[19][2], austinParks[19][4], pcDate1, pcDate2, "list-23").done(data => populateMap(data));
 
 // Great Hills Neighborhood Park
-pullCrimes(austinParks[20][3], austinParks[20][1], austinParks[20][2], austinParks[20][4], '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-24").done(data => populateMap(data));
+pullCrimes(austinParks[20][3], austinParks[20][1], austinParks[20][2], austinParks[20][4], pcDate1, pcDate2, "list-24").done(data => populateMap(data));
 
 // Gracywoods Neighborhood Park
-pullCrimes(austinParks[21][3], austinParks[21][1], austinParks[21][2], austinParks[21][4], '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-25").done(data => populateMap(data));
+pullCrimes(austinParks[21][3], austinParks[21][1], austinParks[21][2], austinParks[21][4], pcDate1, pcDate2, "list-25").done(data => populateMap(data));
 
 // Austin Memorial Cemetery
-pullCrimes(austinParks[22][3], austinParks[22][1], austinParks[22][2], austinParks[22][4], '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-26").done(data => populateMap(data));
+pullCrimes(austinParks[22][3], austinParks[22][1], austinParks[22][2], austinParks[22][4], pcDate1, pcDate2, "list-26").done(data => populateMap(data));
 
 // Waterloo Park
-pullCrimes(austinParks[23][3], austinParks[23][1], austinParks[23][2], austinParks[23][4], '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-27").done(data => populateMap(data));
+pullCrimes(austinParks[23][3], austinParks[23][1], austinParks[23][2], austinParks[23][4], pcDate1, pcDate2, "list-27").done(data => populateMap(data));
 
 // West Austin Neighborhood Park
-pullCrimes(austinParks[24][3], austinParks[24][1], austinParks[24][2], austinParks[24][4], '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-28").done(data => populateMap(data));
+pullCrimes(austinParks[24][3], austinParks[24][1], austinParks[24][2], austinParks[24][4], pcDate1, pcDate2, "list-28").done(data => populateMap(data));
 
 // South Austin Neighborhood Park
-pullCrimes(austinParks[25][3], austinParks[25][1], austinParks[25][2], austinParks[25][4], '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-29").done(data => populateMap(data));
+pullCrimes(austinParks[25][3], austinParks[25][1], austinParks[25][2], austinParks[25][4], pcDate1, pcDate2, "list-29").done(data => populateMap(data));
 
 // Nicholas Dawson Neighborhood Park
-pullCrimes(austinParks[26][3], austinParks[26][1], austinParks[26][2], austinParks[26][4], '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-30").done(data => populateMap(data));
+pullCrimes(austinParks[26][3], austinParks[26][1], austinParks[26][2], austinParks[26][4], pcDate1, pcDate2, "list-30").done(data => populateMap(data));
 
 // Gillis Neighborhood Park
-pullCrimes(austinParks[27][3], austinParks[27][1], austinParks[27][2], austinParks[27][4], '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-31").done(data => populateMap(data));
+pullCrimes(austinParks[27][3], austinParks[27][1], austinParks[27][2], austinParks[27][4], pcDate1, pcDate2, "list-31").done(data => populateMap(data));
 
 // Adams-Hemphill Neighborhood Park
-pullCrimes(austinParks[28][3], austinParks[28][1], austinParks[28][2], austinParks[28][4], '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-32").done(data => populateMap(data));
+pullCrimes(austinParks[28][3], austinParks[28][1], austinParks[28][2], austinParks[28][4], pcDate1, pcDate2, "list-32").done(data => populateMap(data));
 
 // Reilly School Park
-pullCrimes(austinParks[29][3], austinParks[29][1], austinParks[29][2], austinParks[29][4], '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-33").done(data => populateMap(data));
-
+pullCrimes(austinParks[29][3], austinParks[29][1], austinParks[29][2], austinParks[29][4], pcDate1, pcDate2, "list-33").done(data => populateMap(data));
 // pullCrimes("30.242677", "30.294497", "-97.788501", "-97.717318", '2023-06-01T00:00:00.000', '2023-06-30T23:59:59.000', "list-5").done(data => populateMap(data));
