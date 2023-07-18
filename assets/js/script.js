@@ -20,19 +20,19 @@ var garrisonPark = ["Garrison District Park", "30.213989", "-97.802447", "30.208
 var lilStacyPark = ["Little Stacy Park", "30.248717", "-97.744906", "30.245923", "-97.743049", "30.247239", "-97.743781", "16"];
 var southwestGreenway = ["Southwest Greenway", "30.294160", "-97.707727", "30.288103", "-97.694397", "30.289246", "-97.703759", "15"];
 var balconesDistPark = ["Balcones District Park", "30.415541", "-97.721563", "30.410098", "-97.711759", "30.412940", "-97.716745", "16"];
-var millsPondRecArea = ["Mills Pond Recreation Area", "30.456040", "-97.681981", "30.448297", "-97.678249", "30.452114", "-97.680233", "15"];
+var millsPondRecArea = ["Mills Pond Recreation Area", "30.456040", "-97.681981", "30.448297", "-97.678249", "30.452114", "-97.680233", "16"];
 var northwestDistPark = ["Northwest District Park", "30.350764", "-97.744671", "30.345539", "-97.739800", "30.348989", "-97.742047", "15"];
-var eastwoodsPark = ["Eastwoods Park", "30.292031", "-97.733301", "30.289317", "-97.730634", "30.290661", "-97.731380", "15"];
+var eastwoodsPark = ["Eastwoods Park", "30.292031", "-97.733301", "30.289317", "-97.730634", "30.290661", "-97.731380", "16"];
 var greatHillsNeighPark = ["Great Hills Neighborhood Park", "30.419470", "-97.763739", "30.401857", "-97.750022", "30.411557", "-97.757096", "15"];
 var gracywoodsPark = ["Gracywoods Neighborhood Park", "30.407359", "-97.697939", "30.402824", "-97.694719", "30.405162", "-97.695984", "15"];
 var austinMemParkCem = ["Austin Memorial Park Cemetery", "30.334581", "-97.755217", "30.327140", "-97.748120", "30.331335", "-97.751668", "15"];
 var waterlooPark = ["Waterloo Park", "30.275991", "-97.736708", "30.272395", "-97.734629", "30.273964", "-97.735663", "15"];
-var westAustinNeighPark = ["West Austin Neighborhood Park", "30.277813", "-97.758416", "30.275773", "-97.756686", "30.276748", "-97.757456", "15"];
+var westAustinNeighPark = ["West Austin Neighborhood Park", "30.277813", "-97.758416", "30.275773", "-97.756686", "30.276748", "-97.757456", "16"];
 var southAusNeighPark = ["South Austin Neighborhood Park", "30.243738", "-97.770162", "30.239701", "-97.765729", "30.241955", "-97.768024", "15"];
-var nicholasDawsonNeighPark = ["Nicholas Dawson Neighborhood Park", "30.253731", "-97.755859", "30.251591", "-97.753845", "30.252653", "-97.754744", "15"]
-var gillisNeighPark = ["Gillis Neighborhood Park", "30.241941", "-97.760869", "30.239276", "-97.758031", "30.240571", "-97.759362", "15"]
-var adamsHemphillNeighPark = ["Adams-Hemphill Neighborhood Park", "30.299335", "-97.742043", "30.293331", "-97.737493", "30.295758", "-97.739774", "15"];
-var reillySchoolPark = ["Reilly School Park", "30.328636", "-97.721011", "30.325990", "-97.718484", "30.327150", "-97.719462", "15"];
+var nicholasDawsonNeighPark = ["Nicholas Dawson Neighborhood Park", "30.253731", "-97.755859", "30.251591", "-97.753845", "30.252653", "-97.754744", "17"]
+var gillisNeighPark = ["Gillis Neighborhood Park", "30.241941", "-97.760869", "30.239276", "-97.758031", "30.240571", "-97.759362", "16"]
+var adamsHemphillNeighPark = ["Adams-Hemphill Neighborhood Park", "30.299335", "-97.742043", "30.293331", "-97.737493", "30.295758", "-97.739774", "16"];
+var reillySchoolPark = ["Reilly School Park", "30.328636", "-97.721011", "30.325990", "-97.718484", "30.327150", "-97.719462", "16"];
 
 // Array of all parks:
 
