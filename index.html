@@ -53,7 +53,7 @@
     </header>
 
     <!-- Basic structure, adding basic tailwind classes to elements -->
-    <div class="container mx-auto text-3xl font-bold bg-gray-50 square">
+    <div class="container mx-auto text-3xl font-bold bg-gray-50">
         <!-- Row/Column Info -->
         <div class="grid xs:grid-cols-2 xs:gap-4 md:grid-cols-3 md:gap-4 grid-flow-row mpbg">
             <!-- Map/Search Bar Grid  -->
@@ -195,9 +195,9 @@
             <div class="grid mx-auto md:col-span-1 rounded-sm text-center xxs:col-span-2">
                 <h4>Filter Your Search!</h4><div class="bg-gradient-to-r from-gray-500 to-black my-5 place-items-center justify-evenly">
                 <div class="h-auto col-start-4">
-                    <button class="ranges text-gray-300 bg-blue-500 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium text-center mx-auto my-12">Week</button>
-                    <button class="ranges text-gray-300 bg-blue-500 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium text-center mx-auto my-12">Month</button>
-                    <button class="ranges text-gray-300 bg-blue-500 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium text-center mx-auto my-12">Year</button>
+                    <button class="ranges text-gray-300 bg-blue-500 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium text-center mx-auto my-5" onclick="pullWeek()"> Week</button>
+                    <button class="ranges text-gray-300 bg-blue-500 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium text-center mx-auto my-5" onclick="pullMonth()">Month</button>
+                    <button class="ranges text-gray-300 bg-blue-500 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium text-center mx-auto my-5" onclick="pullYear()">Year</button>
                 </div>
             </div>
             </div>
