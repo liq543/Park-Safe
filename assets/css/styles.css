@@ -611,8 +611,32 @@ video {
   grid-column: span 2 / span 2;
 }
 
+.col-start-4 {
+  grid-column-start: 4;
+}
+
+.col-start-2 {
+  grid-column-start: 2;
+}
+
+.col-start-3 {
+  grid-column-start: 3;
+}
+
+.col-start-6 {
+  grid-column-start: 6;
+}
+
+.col-start-1 {
+  grid-column-start: 1;
+}
+
 .row-span-1 {
   grid-row: span 1 / span 1;
+}
+
+.float-right {
+  float: right;
 }
 
 .mx-0 {
@@ -638,6 +662,31 @@ video {
 .my-8 {
   margin-top: 2rem;
   margin-bottom: 2rem;
+}
+
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.my-3 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.mx-10 {
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+}
+
+.my-10 {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .mb-1 {
@@ -732,6 +781,22 @@ video {
   height: 1px;
 }
 
+.h-9 {
+  height: 2.25rem;
+}
+
+.h-96 {
+  height: 24rem;
+}
+
+.h-2 {
+  height: 0.5rem;
+}
+
+.h-auto {
+  height: auto;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -758,6 +823,10 @@ video {
 
 .w-full {
   width: 100%;
+}
+
+.w-12 {
+  width: 3rem;
 }
 
 .min-w-full {
@@ -813,6 +882,10 @@ video {
   grid-template-columns: repeat(7, minmax(0, 1fr));
 }
 
+.place-content-center {
+  place-content: center;
+}
+
 .place-items-center {
   place-items: center;
 }
@@ -829,8 +902,16 @@ video {
   justify-content: space-between;
 }
 
+.justify-around {
+  justify-content: space-around;
+}
+
 .justify-evenly {
   justify-content: space-evenly;
+}
+
+.justify-items-stretch {
+  justify-items: stretch;
 }
 
 .gap-4 {
@@ -972,6 +1053,16 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-blue-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(96 165 250 / var(--tw-bg-opacity));
+}
+
+.bg-blue-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
 }
 
 .bg-gradient-to-br {
@@ -1208,6 +1299,10 @@ body {
     margin: 5px auto;
     width: 100%;
   }
+}
+
+.first-letter\:square::first-letter {
+  aspect-ratio: 1 / 1;
 }
 
 .hover\:-translate-x-1\/4:hover {
