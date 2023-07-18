@@ -1,14 +1,16 @@
+// HTML items
 var emailEntry = document.querySelector("#email");
 var emailForm = document.querySelector("#emailForm");
 var priorEmailsBelow = document.querySelector("#priorEmailsBelow")
 
+// array of submitted emails
 var emails = [];
 
-console.log (emailEntry);
-console.log (emailForm) ;
-
+// function to print emails to the page
 function renderEmails () {
+    // this keeps the emails from doubling up in the for loop
     priorEmailsBelow.innerHTML = "";
+
     for (var i = 0; i < emails.length; i++) {
         var userEmail = emails[i];
 
@@ -16,28 +18,26 @@ function renderEmails () {
         li.textContent = userEmail;
         li.setAttribute("data-index", i);
 
+        // currently appending emails as list items
         priorEmailsBelow.appendChild(li);
     }
-    console.log("render emails running")
 }
 
+// function to initiate the whole program
 function init() {
-    var storedEmails = JSON.parse(localStorage.getItem("storedEmails"));
+    var storedEmails = JSON.parse(localStorage.getItem("Emails entered: "));
     if (storedEmails !== null) {
         emails = storedEmails;
-        console.log("if statement triggered");
     }
-    console.log("if statement not triggered")
     renderEmails();
 }
 
+// stores the emails to local storage
 function storeEmails() {
     localStorage.setItem("Emails entered: ", JSON.stringify(emails));
-    console.log(JSON.stringify(emails));
 }
 
-console.log("no event listener?"); 
-
+// listens to when a user clicks subscribe and then saves their email in the following function
 emailForm.addEventListener("submit", emailSubmitted);
 
 function emailSubmitted (event) {
@@ -51,16 +51,14 @@ function emailSubmitted (event) {
         return;
         
     }
-
+    // adds the newly entered email to the emails array
     emails.push(emailEntered);
-    // emailEntered.value = "";
-    console.log ("Email added to array - " + emails)
-    console.log ("Email pushed to local storage" + emailEntry.value)
 
+    // every time the user clicks submit, the emails are stored locally and rendered to the page
     storeEmails();
     renderEmails();
 
 }
 
-// 
+// start it up
 init();
