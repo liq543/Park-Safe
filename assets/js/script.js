@@ -153,7 +153,7 @@ function makeParkList() {
     let button = document.createElement("button");
     button.setAttribute("type", "button");
     button.setAttribute("id", parkNumber);
-    button.setAttribute("class", "flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 accordion-button");
+    button.setAttribute("class", "flex items-center justify-between w-full font-medium text-left text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 accordion-button p-4 bg-gray-900");
     button.setAttribute("data-accordion-target", "#accordion-collapse-body-" + parkNumber);
     button.setAttribute("aria-expanded", "false");
     button.setAttribute("aria-controls", "accordion-collapse-body-" + parkNumber);
@@ -189,7 +189,7 @@ function makeParkList() {
     div.setAttribute("aria-labelledby", "accordion-collapse-heading-" + parkNumber);
 
     let content = document.createElement("div");
-    content.setAttribute("class", "p-5 border border-b-0 border-gray-200 dark:border-gray-700");
+    content.setAttribute("class", "bg-gray-800 border-gray-100 text-white rounded-t-1 group relative flex w-full cursor-pointer items-center border-b border-solid p-4 text-left text-sm font-semibold transition-all ease-in antialiased underline");
 
     //We set the id to be "list-" with the parkNumber at the end, so we know where to assign this later in our pullCrimes function (pullCrimes(latMin, latMax, lngMin, lngMax, startDate, endDate, list)). The pullCrimes function will see the list id and know where to assign the crime data for it to.
     let ul = document.createElement("ul");
