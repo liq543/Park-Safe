@@ -21,6 +21,7 @@
     "tailwindcss": "^3.3.2"
   },
   "dependencies": {
+    "@material-tailwind/html": "^2.0.0",
     "fuse.js": "^6.6.2"
   }
 }
